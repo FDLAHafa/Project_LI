@@ -104,6 +104,70 @@
                         </div>
                     <!-- /.panel -->
                     </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                        Jumlah Saman Bulanan
+                        </div>
+                        <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div id='chart1' style="height: 250px;">
+                                    <script>
+                                        Morris.Bar({
+                                            element : 'chart1',
+                                            data:[
+                                                    {a : 1,b : 2},
+                                                    {a : 2,b : 4},
+                                                    {a : 3,b : 6},
+                                                    {a : 4,b : 8},
+                                                    {a : 5,b : 10},
+                                                    {a : 6,b : 12},
+                                                    {a : 7,b : 14},
+                                                    ],
+                                            xkey: 'a',
+                                            ykeys:['b'],
+                                            labels:['Y-axis'],
+                                            hideHover:'auto',
+                                        });
+                                        </script>
+                                </div>
+                            </div>
+                        <!-- /.panel-body -->
+                        </div>
+                    <!-- /.panel -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                        Jumlah Saman Bulanan
+                        </div>
+                        <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div id='chart2' style="height: 250px;">
+                                    <script>
+                                        Morris.Bar({
+                                            element : 'chart2',
+                                            data:[
+                                                    {a : 1,b : 2},
+                                                    {a : 2,b : 4},
+                                                    {a : 3,b : 6},
+                                                    {a : 4,b : 8},
+                                                    {a : 5,b : 10},
+                                                    {a : 6,b : 12},
+                                                    {a : 7,b : 14},
+                                                    ],
+                                            xkey: 'a',
+                                            ykeys:['b'],
+                                            labels:['Y-axis'],
+                                            hideHover:'auto',
+                                        });
+                                        </script>
+                                </div>
+                            </div>
+                        <!-- /.panel-body -->
+                        </div>
+                    <!-- /.panel -->
+                    </div>
                 </div>
 
             </div>
