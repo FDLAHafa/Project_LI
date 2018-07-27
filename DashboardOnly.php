@@ -43,7 +43,7 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <?php echo $r['staff_ID']; ?> <b class="caret"></b>
+                    <i class="fa fa-user fa-fw"></i> <?php echo $r['staff_id']; ?> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -71,13 +71,10 @@
                         </div>
                     </li>
                     <li>
-                        <a href="Dashboard.php" class=""><i class="fa fa-television fa-fw"></i> Dashboard</a>
+                        <a href="Dashboard.php" class="active"><i class="fa fa-book fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="srs.php" class=""><i class="fa fa-group fa-fww"></i> Sistem Pendaftaran Pelajar</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Saman<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Saman<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                         <a href="#">SRD <span class="fa arrow"></span></a>
@@ -91,23 +88,24 @@
                                         </ul>
                                         <!-- /.nav-third-level -->
                             </li>
-                              
+                            <li>
+                                <a href="LL.php">Kesalahan Lalu Lintas</a>
+                            </li>
+
                         </ul>
-                        
-                                  
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-clipboard fa-fw"></i> Laporan<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Laporan<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <li>
-                                    <a href="JenisLaporan.php">PB05</a>
+                                    <a href="#">PB05</a>
                                 </li>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wpforms fa-fw"></i> Report<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i>Report<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">Example</a>

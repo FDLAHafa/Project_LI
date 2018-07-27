@@ -3,7 +3,7 @@
 $username = "root"; //mysql username
 $password = ""; //mysql password
 $hostname = "localhost"; //server name or ip address
-$dbname = "spbur"; //your dbname
+$dbname = "pbraub"; //your dbname
 
 //dbconn = mysql_connect($host, $user, $pass);
 $dbconn = mysqli_connect($hostname, $username, $password, $dbname);
@@ -22,5 +22,4 @@ if (mysqli_connect_errno())
 }
 /*else
 	echo 'ok';*/
-?> 
-
+?>
