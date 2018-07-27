@@ -70,40 +70,70 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form method="post" action="srs1.php">
+                                    <form>
                                         <div class="form-group">
                                             <label>No Matriks</label>
-                                            <input class="form-control" type="text" name="" value="" placeholder="">
+                                            <input class="form-control" type="text" name="matric_no" value="" placeholder="">
                                         </div>
                                         <div class="form-group">
                                             <label>Nama</label>
-                                            <input class="form-control" type="text" name="" value="" placeholder="">
+                                            <input class="form-control" type="text" name="name" value="" placeholder="">
                                         </div>
                                         <div class="form-group">
                                             <label>Kad pengenalan</label>
-                                            <input class="form-control" type="text" name="" value="" placeholder="">
+                                            <input class="form-control" type="text" name="ic_number" value="" placeholder="">
                                         </div>                                            
                                         <div class="form-group">
                                             <label>Alamat Rumah</label>
-                                            <input class="form-control" type="text" name="" value="" placeholder="">
+                                            <input class="form-control" type="text" name="address" value="" placeholder="">
                                         </div>
                                         <div class="form-group">
                                             <label>No Telefon</label>
-                                            <input class="form-control" type="text" name="" value="" placeholder="">
+                                            <input class="form-control" type="text" name="phone_no" value="" placeholder="">
                                         </div>
                                         <div class="form-group">
                                             <label>Tarikh Lahir</label>
-                                            <input class="form-control" type="text" name="" value="" placeholder="">
+                                            <input class="form-control" type="text" name="birthdate" value="" placeholder="example: 1998-08-10">
                                         </div>
                                         <div class="form-group">
                                             <label>Jantina</label>
-                                            <select class="form-control">
-                                                    <option name="gender" value="Lelaki">Lelaki</option>
-                                                    <option name="gender" value="Peremppuan">Perempuan</option>
+                                            <select name="gender" class="form-control">
+                                                    <option value="Lelaki">Lelaki</option>
+                                                    <option value="Peremppuan">Perempuan</option>
                                             </select>
+                                        </div>  
+                                        </form>               
+                                    
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <button class="btn btn-info" data-toggle="modal" data-target="#myModal" type="submit" name="submit">Register</button>
+                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Save Student?</h4>
+                                                </div>
+                                            <div class="modal-body">
+                                               Please make sure that every information has been insert correctly.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-info" name="submit" >Save changes</button>
+                                            </div>
+                                            </div>
+                                        <!-- /.modal-content -->
                                         </div>
-                                        <button type="submit" name = "submit" class="btn btn-info">Register</button>                   
-                                    </form>
+                                    <!-- /.modal-dialog -->
                                     </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                         </form>   
+                    </div>
 
             <!-- ... Your content goes here ... -->
             

@@ -7,26 +7,26 @@ include("dbconn.php");
 if(isset($_POST['login']))
 {
 				$staff_ID = $_POST['staff_ID'];
-				$pass_word = $_POST['pass_word'];
+				$pass_word = $_POST['pass_word'];				
 
-				$sql = "SELECT * FROM urstaff WHERE staff_id = '$staff_ID' AND pass_word = '$pass_word'";
+				$sql = "SELECT * FROM staff WHERE staff_ID = '$staff_ID' AND pass_word = '$pass_word'";
 
 				$query = mysqli_query($dbconn, $sql) or die("Error: " . mysqli_error($dbconn));
 
 				$row = mysqli_num_rows($query);
 
-				if($row == 0)
+				if($row == 0) 
 				{?>
-
-					<div>
+					
+					<div> 
 						Data not Exist!!
 						<a href="index.html">Go Back</a>
                     </div><?php
 				}
-				else
+				else 
 				{
 					$r = mysqli_fetch_assoc($query);
-					$_SESSION['staff_ID'] = $r['staff_id'];
+					$_SESSION['staff_ID'] = $r['staff_ID'];
 					$_SESSION['pass_word'] = $r['pass_word'];
 					header("Location: Dashboard.php");
 				}
@@ -35,6 +35,6 @@ if(isset($_POST['login']))
 
 			mysqli_close($dbconn);
 ?>
-
+					
 	</body>
 </html>

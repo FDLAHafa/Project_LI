@@ -57,11 +57,11 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Gantian Kad Pelajar</h1> 
+                    <h1 class="page-header">Aduan Kehilangan Barang</h1> 
                 </div>
             </div>
                                     <div class="col-lg-6">
-                                        <form role="form" method="post" action="kadpelajar1.php">
+                                        <form role="form" method="post" action="barang1.php">
                                             <div>
                                                 <div class="form-group input-group">
                                                     <span class="input-group-addon">No Pelajar UiTM</span>

@@ -14,6 +14,8 @@ if(isset($_POST['submit']))
 	$summon_time = $_POST['summon_time'];			
 	$summon_place = $_POST['summon_place'];	
 	$chkbox = $_POST['summons'];
+	$rm = $_POST['rm'];
+	$paybefore = $_POST['paybefore'];
  
  	$chkNew = "";			
  	foreach($chkbox as $chkNew1) 
@@ -21,7 +23,7 @@ if(isset($_POST['submit']))
  		$chkNew .= $chkNew1 . ", "; 
  	} 
 
-	$sql0 = "INSERT INTO kp(name, matric_no, mykad_no, prog_code, summon_date, summon_time, summon_place,summons) VALUES ('".$name."', '".$matric_no."', '".$mykad_no."', '".$prog_code."', '".$summon_date."', '".$summon_time."', '".$summon_place."', '".$chkNew."')";
+	$sql0 = "INSERT INTO kp(gender, name, matric_no, mykad_no, prog_code, summon_date, summon_time, summon_place, summons, rm, paybefore) VALUES ('Siswi', '".$name."', '".$matric_no."', '".$mykad_no."', '".$prog_code."', '".$summon_date."', '".$summon_time."', '".$summon_place."', '".$chkNew."', '".$rm."', '".$paybefore."')";
 	//$sql1 = "INSERT INTO spbur (MultipleValue) VALUES ('$chkNew')";
 
 	
