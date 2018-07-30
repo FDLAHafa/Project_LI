@@ -38,7 +38,22 @@
         <![endif]-->
         
         <!--PHP segemnt for tables and charts -->
+        <?php 
         
+        $janCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 1 ";
+        $febCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 2 ";
+        $marCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 3 ";
+        $aprCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 4 ";
+        $mayCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 5 ";
+        $junCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 6 ";
+        $julCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 7 ";   
+        $augCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 8 ";  
+        $sepCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 9 ";
+        $octCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 10 ";
+        $novCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 11 ";
+        $decCount = "SELECT COUNT(*) as jan from kp where month(summon_date) = 12 ";
+            
+        ?>
         
     </head>
     
@@ -84,17 +99,22 @@
                                         Morris.Bar({
                                             element : 'chart',
                                             data:[
-                                                    {a : 1,b : 2},
-                                                    {a : 2,b : 4},
-                                                    {a : 3,b : 6},
-                                                    {a : 4,b : 8},
-                                                    {a : 5,b : 10},
-                                                    {a : 6,b : 12},
-                                                    {a : 7,b : 14},
+                                                    {a : 'January',b : 3},
+                                                    {a : 'Febuary',b : 4},
+                                                    {a : 'March',b : 6},
+                                                    {a : 'April',b : 8},
+                                                    {a : 'May',b : 10},
+                                                    {a : 'June',b : 12},
+                                                    {a : 'July',b : 14},
+                                                    {a : 'August',b : 14},
+                                                    {a : 'September',b : 14},
+                                                    {a : 'October',b : 14},
+                                                    {a : 'November',b : 14},
+                                                    {a : 'December',b : 14},
                                                     ],
                                             xkey: 'a',
                                             ykeys:['b'],
-                                            labels:['Y-axis'],
+                                            labels:['Kesalahan'],
                                             hideHover:'auto',
                                         });
                                         </script>
@@ -126,7 +146,7 @@
                                                     ],
                                             xkey: 'a',
                                             ykeys:['b'],
-                                            labels:['Y-axis'],
+                                            labels:['Month'],
                                             hideHover:'auto',
                                         });
                                         </script>
