@@ -36,73 +36,90 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        
-        <!--PHP segemnt for tables and charts -->
-        <?php 
+
+
+        <!--PHP segement for tables and charts -->
+        <?php
         include 'dbconn.php';
+        $query = mysqli_query($dbconn,"SELECT * FROM kp");
         
         $jan = "SELECT * from kp where month(summon_date) = 1 ";
         $janTest = mysqli_query($dbconn,$jan);
         if ($janTest == null) {$janCount = 0;}
         else {$janCount = mysqli_num_rows($janTest);}
 
-        $feb = "SELECT * as jan from kp where month(summon_date) = 2 ";
+        $feb = "SELECT * from kp where month(summon_date) = 2 ";
         $febTest = mysqli_query($dbconn,$feb);
         if ($febTest == null) {$febCount = 0;}
         else {$febCount = mysqli_num_rows($febTest);}
 
-        $mar = "SELECT * as jan from kp where month(summon_date) = 3 ";
+        $mar = "SELECT * from kp where month(summon_date) = 3 ";
         $marTest = mysqli_query($dbconn,$mar);
         if ($marTest == null) {$marCount = 0;}
         else {$marCount = mysqli_num_rows($marTest);}
 
-        $apr = "SELECT * as jan from kp where month(summon_date) = 4 ";
+        $apr = "SELECT * from kp where month(summon_date) = 4 ";
         $aprTest = mysqli_query($dbconn,$apr);
         if ($aprTest == null) {$aprCount = 0;}
         else {$aprCount = mysqli_num_rows($aprTest);}
 
-        $may = "SELECT * as jan from kp where month(summon_date) = 5 ";
+        $may = "SELECT * from kp where month(summon_date) = 5 ";
         $mayTest = mysqli_query($dbconn,$may);
         if ($mayTest == null) {$mayCount = 0;}
-        else {$$mayCount = mysqli_num_rows($$mayTest);}
+        else {$mayCount = mysqli_num_rows($mayTest);}
 
-        $jun = "SELECT * as jan from kp where month(summon_date) = 6 ";
+        $jun = "SELECT * from kp where month(summon_date) = 6 ";
         $junTest = mysqli_query($dbconn,$jun);
         if ($junTest == null) {$junCount = 0;}
         else {$junCount = mysqli_num_rows($junTest);}
 
-        $jul = "SELECT * as jan from kp where month(summon_date) = 7 ";
+        $jul = "SELECT * from kp where month(summon_date) = 7 ";
         $julTest = mysqli_query($dbconn,$jul);
         if ($julTest == null) {$julCount = 0;}
         else {$julCount = mysqli_num_rows($julTest);}
 
-        $aug = "SELECT * as jan from kp where month(summon_date) = 8 ";
+        $aug = "SELECT * from kp where month(summon_date) = 8 ";
         $augTest = mysqli_query($dbconn,$aug);
         if ($augTest == null) {$augCount = 0;}
         else {$augCount = mysqli_num_rows($augTest);}
 
-        $sep = "SELECT * as jan from kp where month(summon_date) = 9 ";
+        $sep = "SELECT * from kp where month(summon_date) = 9 ";
         $sepTest = mysqli_query($dbconn,$sep);
         if ($sepTest == null) {$sepCount = 0;}
         else {$sepCount = mysqli_num_rows($sepTest);}
 
-        $oct = "SELECT * as jan from kp where month(summon_date) = 10 ";
+        $oct = "SELECT * from kp where month(summon_date) = 10 ";
         $octTest = mysqli_query($dbconn,$oct);
         if ($janTest == null) {$janCount = 0;}
         else {$octCount = mysqli_num_rows($octTest);}
 
-        $nov = "SELECT * as jan from kp where month(summon_date) = 11 ";
+        $nov = "SELECT * from kp where month(summon_date) = 11 ";
         $novTest = mysqli_query($dbconn,$nov);
         if ($novTest == null) {$novCount = 0;}
         else {$novCount = mysqli_num_rows($novTest);}
 
-        $dec = "SELECT * as jan from kp where month(summon_date) = 12 ";
+        $dec = "SELECT * from kp where month(summon_date) = 12 ";
         $decTest = mysqli_query($dbconn,$dec);
         if ($decTest == null) {$decCount = 0;}
         else {$decCount = mysqli_num_rows($decTest);}
 
-        $count =
+        $countArr = array($janCount,$febCount,$marCount,$aprCount,$mayCount,$junCount,$julCount,$augCount,$sepCount,$octCount,$novCount,$decCount);
 
+        function intToMonth ($int)
+        {
+            $monthArr = array('January','Febuary','March','April','May','June','July','August','September','October','November','December');
+            return $monthArr[$int];
+        }
+
+        $count = '';
+        $iter = 0;
+        foreach($countArr as $monthCount)
+        {
+            $month = intToMonth($iter);
+            $count .= "{a : '".$month."' , b : ". $monthCount."},";
+            $iter++;
+        }
+        $count = substr($count,0,-1);
         ?>
         
     </head>
@@ -149,7 +166,7 @@
                                         Morris.Bar({
                                             element : 'chart',
                                             data:[
-                                                    { a : 'January',     b : <?php echo $count ; ?>},
+                                                    <?php echo $count ; ?>
                                                     ],
                                             xkey: 'a',
                                             ykeys:['b'],
