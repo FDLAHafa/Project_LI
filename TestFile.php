@@ -8,7 +8,7 @@ while($row = mysqli_fetch_array($result))
 {
  $chart_data .= "{ year:'".$row["year"]."', profit:".$row["profit"].", purchase:".$row["purchase"].", sale:".$row["sale"]."}, ";
 }
-$chart_data = substr($chart_data, 0, -2);
+$chart_data = substr($chart_data, 0, -1);
 ?>
 
 
@@ -29,26 +29,18 @@ $chart_data = substr($chart_data, 0, -2);
    <h3 align="center">Last 10 Years Profit, Purchase and Sale Data</h3>   
    <br /><br />
    <div id="chart"></div>
-  <div id="testBarChart"></div>
   </div>
  </body>
 </html>
 
 <script>
 Morris.Bar({
-    element : 'chart',
-    data:[
-            {a : 1,b : 2},
-            {a : 2,b : 4},
-            {a : 3,b : 6},
-            {a : 4,b : 8},
-            {a : 5,b : 10},
-            {a : 6,b : 12},
-            {a : 7,b : 14},
-            ],
-    xkey: 'a',
-    ykeys:['b'],
-    labels:['Y-axis'],
-    hideHover:'auto',
+ element : 'chart',
+ data:[<?php echo $chart_data; ?>],
+ xkey:'year',
+ ykeys:['profit', 'purchase', 'sale'],
+ labels:['Profit', 'Purchase', 'Sale'],
+ hideHover:'auto',
+ stacked:true
 });
 </script>
