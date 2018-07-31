@@ -37,27 +37,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script>
-            function month()
-            {
-                var month = new Array();
-                month[0] = "January";
-                month[1] = "February";
-                month[2] = "March";
-                month[3] = "April";
-                month[4] = "May";
-                month[5] = "June";
-                month[6] = "July";
-                month[7] = "August";
-                month[8] = "September";
-                month[9] = "October";
-                month[10] = "November";
-                month[11] = "December";
 
-                var d = new Date();
-                var n = month[d.getMonth()];
-            }
-        </script>
         <!--PHP segement for tables and charts -->
         <?php
         include 'dbconn.php';
@@ -125,13 +105,19 @@
 
         $countArr = array($janCount,$febCount,$marCount,$aprCount,$mayCount,$junCount,$julCount,$augCount,$sepCount,$octCount,$novCount,$decCount);
 
+        function intToMonth ($int)
+        {
+            $monthArr = array('January','Febuary','March','April','May','June','July','August','September','October','November','December');
+            return $monthArr[$int];
+        }
+
         $count = '';
-        $iter = 1;
+        $iter = 0;
         foreach($countArr as $monthCount)
         {
-            $count .= "{ a : ".$iter." , b : ". $monthCount ."},";
-            $iter ++;
-            //{a : 1,b : 2},
+            $month = intToMonth($iter);
+            $count .= "{a : '".$month."' , b : ". $monthCount."},";
+            $iter++;
         }
         $count = substr($count,0,-1);
         ?>
