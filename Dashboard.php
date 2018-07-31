@@ -38,17 +38,76 @@
         <![endif]-->
         
         <!--PHP segemnt for tables and charts -->
-        <?php 
+        <?php
         include 'dbconn.php';
+        $query = mysqli_query($dbconn,"SELECT * FROM kp");
         
-        $query = "SELECT * FROM kp";
-        $result = mysqli_query($dbconn, $query);
-        $chart_data = '';
-        while($row = mysqli_fetch_array($result))
+        $jan = "SELECT * from kp where month(summon_date) = 1 ";
+        $janTest = mysqli_query($dbconn,$jan);
+        if ($janTest == null) {$janCount = 0;}
+        else {$janCount = mysqli_num_rows($janTest);}
+
+        $feb = "SELECT * as jan from kp where month(summon_date) = 2 ";
+        $febTest = mysqli_query($dbconn,$feb);
+        if ($febTest == null) {$febCount = 0;}
+        else {$febCount = mysqli_num_rows($febTest);}
+
+        $mar = "SELECT * as jan from kp where month(summon_date) = 3 ";
+        $marTest = mysqli_query($dbconn,$mar);
+        if ($marTest == null) {$marCount = 0;}
+        else {$marCount = mysqli_num_rows($marTest);}
+
+        $apr = "SELECT * as jan from kp where month(summon_date) = 4 ";
+        $aprTest = mysqli_query($dbconn,$apr);
+        if ($aprTest == null) {$aprCount = 0;}
+        else {$aprCount = mysqli_num_rows($aprTest);}
+
+        $may = "SELECT * as jan from kp where month(summon_date) = 5 ";
+        $mayTest = mysqli_query($dbconn,$may);
+        if ($mayTest == null) {$mayCount = 0;}
+        else {$$mayCount = mysqli_num_rows($$mayTest);}
+
+        $jun = "SELECT * as jan from kp where month(summon_date) = 6 ";
+        $junTest = mysqli_query($dbconn,$jun);
+        if ($junTest == null) {$junCount = 0;}
+        else {$junCount = mysqli_num_rows($junTest);}
+
+        $jul = "SELECT * as jan from kp where month(summon_date) = 7 ";
+        $julTest = mysqli_query($dbconn,$jul);
+        if ($julTest == null) {$julCount = 0;}
+        else {$julCount = mysqli_num_rows($julTest);}
+
+        $aug = "SELECT * as jan from kp where month(summon_date) = 8 ";
+        $augTest = mysqli_query($dbconn,$aug);
+        if ($augTest == null) {$augCount = 0;}
+        else {$augCount = mysqli_num_rows($augTest);}
+
+        $sep = "SELECT * as jan from kp where month(summon_date) = 9 ";
+        $sepTest = mysqli_query($dbconn,$sep);
+        if ($sepTest == null) {$sepCount = 0;}
+        else {$sepCount = mysqli_num_rows($sepTest);}
+
+        $oct = "SELECT * as jan from kp where month(summon_date) = 10 ";
+        $octTest = mysqli_query($dbconn,$oct);
+        if ($janTest == null) {$janCount = 0;}
+        else {$octCount = mysqli_num_rows($octTest);}
+
+        $nov = "SELECT * as jan from kp where month(summon_date) = 11 ";
+        $novTest = mysqli_query($dbconn,$nov);
+        if ($novTest == null) {$novCount = 0;}
+        else {$novCount = mysqli_num_rows($novTest);}
+
+        $dec = "SELECT * as jan from kp where month(summon_date) = 12 ";
+        $decTest = mysqli_query($dbconn,$dec);
+        if ($decTest == null) {$decCount = 0;}
+        else {$decCount = mysqli_num_rows($decTest);}
+
+        $countArr = array($janCount,$febCount,$marCount,$aprCount,$mayCount,$junCount,$julCount,$augCount,$sepCount,$octCount,$novCount,$decCount);
+
+        foreach($countArr as $monthCount)
         {
-            $chart_data .= "{ year:'".$row["year"]."', profit:".$row["profit"].", purchase:".$row["purchase"].", sale:".$row["sale"]."}, ";
+            $count = "{ a : ''}"
         }
-        $count = substr($chart_data, 0, -2);
 
         ?>
         
