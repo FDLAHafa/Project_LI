@@ -41,7 +41,8 @@
         <!--PHP segement for tables and charts -->
         <?php
         include 'dbconn.php';
-        $query = mysqli_query($dbconn,"SELECT * FROM kp");
+
+        //php code for violations
         
         $jan = "SELECT * from kp where month(summon_date) = 1 ";
         $janTest = mysqli_query($dbconn,$jan);
@@ -112,12 +113,37 @@
         }
 
         $count = '';
-        $iter = 0;
+        $iterVio = 0;
         foreach($countArr as $monthCount)
         {
-            $month = intToMonth($iter);
-            $count .= "{a : '".$month."' , b : ". $monthCount."},";
-            $iter++;
+            $month = intToMonth($iterVio);
+            $countVio .= "{a : '".$month."' , b : ". $monthCount."},";
+            $iterVio++;
+        }
+        $count = substr($count,0,-1);
+
+
+        //php code for lost matric cards
+
+        function intToFac ($int)
+        {
+            $facArr = array('FSKM','FSPPP','Business');
+            return $facArr[$int];
+        }
+
+        $fskm = "SELECT * from kp where faculty LIKE '%FSKM%' ";
+        $fskmTest = mysqli_query($dbconn,$fskm);
+        if ($fskmTest == null) {$fskmCou nt = 0;}
+        else {$fskmCount = mysqli_num_rows($fskmTest);}
+
+        $facCountArr = array($fskmCount);
+
+        $iterFac = 0;
+        foreach($facCountArr as $facCount)
+        {
+            $fac = intToFac($iterFac);
+            $countFac .= "{a : '".$fac."' , b : ". $facCount."},";
+            $iterFac++;
         }
         $count = substr($count,0,-1);
         ?>
@@ -161,12 +187,12 @@
                         </div>
                         <!-- /.panel-heading -->
                             <div class="panel-body">
-                                <div id='chart' style="height: 250px;">
+                                <div id='violations' style="height: 250px;">
                                     <script>
                                         Morris.Bar({
-                                            element : 'chart',
+                                            element : 'violations',
                                             data:[
-                                                    <?php echo $count ; ?>
+                                                    <?php echo $countVio ; ?>
                                                     ],
                                             xkey: 'a',
                                             ykeys:['b'],
@@ -183,26 +209,20 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                         <div class="panel-heading">
-                        Jumlah Saman Bulanan
+                        Jumlah Kehilangan Kad Matrik
                         </div>
                         <!-- /.panel-heading -->
                             <div class="panel-body">
-                                <div id='chart1' style="height: 250px;">
+                                <div id='lostMatric' style="height: 250px;">
                                     <script>
                                         Morris.Bar({
-                                            element : 'chart1',
+                                            element : 'lostMatric',
                                             data:[
-                                                    {a : 1,b : 2},
-                                                    {a : 2,b : 4},
-                                                    {a : 3,b : 6},
-                                                    {a : 4,b : 8},
-                                                    {a : 5,b : 10},
-                                                    {a : 6,b : 12},
-                                                    {a : 7,b : 14},
+                                                    <?php echo $countFac ; ?>
                                                     ],
                                             xkey: 'a',
                                             ykeys:['b'],
-                                            labels:['Month'],
+                                            labels:['Faculty'],
                                             hideHover:'auto',
                                         });
                                         </script>
