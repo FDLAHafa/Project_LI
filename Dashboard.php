@@ -44,47 +44,47 @@
 
         //php code for violations
         
-        $jan = "SELECT * from kp where month(summon_date) = 1 ";
+        $jan = "SELECT * from kp where month(summon_date) = 01 ";
         $janTest = mysqli_query($dbconn,$jan);
         if ($janTest == null) {$janCount = 0;}
         else {$janCount = mysqli_num_rows($janTest);}
 
-        $feb = "SELECT * from kp where month(summon_date) = 2 ";
+        $feb = "SELECT * from kp where month(summon_date) = 02 ";
         $febTest = mysqli_query($dbconn,$feb);
         if ($febTest == null) {$febCount = 0;}
         else {$febCount = mysqli_num_rows($febTest);}
 
-        $mar = "SELECT * from kp where month(summon_date) = 3 ";
+        $mar = "SELECT * from kp where month(summon_date) = 03 ";
         $marTest = mysqli_query($dbconn,$mar);
         if ($marTest == null) {$marCount = 0;}
         else {$marCount = mysqli_num_rows($marTest);}
 
-        $apr = "SELECT * from kp where month(summon_date) = 4 ";
+        $apr = "SELECT * from kp where month(summon_date) = 04 ";
         $aprTest = mysqli_query($dbconn,$apr);
         if ($aprTest == null) {$aprCount = 0;}
         else {$aprCount = mysqli_num_rows($aprTest);}
 
-        $may = "SELECT * from kp where month(summon_date) = 5 ";
+        $may = "SELECT * from kp where month(summon_date) = 05 ";
         $mayTest = mysqli_query($dbconn,$may);
         if ($mayTest == null) {$mayCount = 0;}
         else {$mayCount = mysqli_num_rows($mayTest);}
 
-        $jun = "SELECT * from kp where month(summon_date) = 6 ";
+        $jun = "SELECT * from kp where month(summon_date) = 06 ";
         $junTest = mysqli_query($dbconn,$jun);
         if ($junTest == null) {$junCount = 0;}
         else {$junCount = mysqli_num_rows($junTest);}
 
-        $jul = "SELECT * from kp where month(summon_date) = 7 ";
+        $jul = "SELECT * from kp where month(summon_date) = 07 ";
         $julTest = mysqli_query($dbconn,$jul);
         if ($julTest == null) {$julCount = 0;}
         else {$julCount = mysqli_num_rows($julTest);}
 
-        $aug = "SELECT * from kp where month(summon_date) = 8 ";
+        $aug = "SELECT * from kp where month(summon_date) = 08 ";
         $augTest = mysqli_query($dbconn,$aug);
         if ($augTest == null) {$augCount = 0;}
         else {$augCount = mysqli_num_rows($augTest);}
 
-        $sep = "SELECT * from kp where month(summon_date) = 9 ";
+        $sep = "SELECT * from kp where month(summon_date) = 09 ";
         $sepTest = mysqli_query($dbconn,$sep);
         if ($sepTest == null) {$sepCount = 0;}
         else {$sepCount = mysqli_num_rows($sepTest);}

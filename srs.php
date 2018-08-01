@@ -99,7 +99,7 @@
                                             <label>Jantina</label>
                                             <select name="gender" class="form-control">
                                                     <option value="Lelaki">Lelaki</option>
-                                                    <option value="Peremppuan">Perempuan</option>
+                                                    <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-info" name="submit" >Register</button>

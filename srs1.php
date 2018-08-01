@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
 	{
 		echo "successfull added";
 		//header("Location: AdminInformation.php");
-		echo '<a href="srs.php"> Go Back</a>';
+		header("Location: srs.php");
 	} 
 
 	else {
