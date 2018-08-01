@@ -60,18 +60,18 @@
                     <h1 class="page-header">Aduan Kehilangan Barang</h1> 
                 </div>
             </div>
-                                    <div class="col-lg-6">
-                                        <form role="form" method="post" action="barang1.php">
-                                            <div>
-                                                <div class="form-group input-group">
-                                                    <span class="input-group-addon">No Pelajar UiTM</span>
-                                                    <input type="text" name="matric_no" class="form-control">
-                                                </div>
-                                                <button type="submit" name="check" class="btn btn-success">Check</button>
-                                            </div>
-                                            <br>
-                                        </form>
-                                    </div>
+            <div class="col-lg-6">
+                <form role="form" method="post" action="barang1.php">
+                    <div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon">No Pelajar UiTM</span>
+                            <input type="text" name="matric_no" class="form-control">
+                        </div>
+                        <button type="submit" name="check" class="btn btn-success">Check</button>
+                    </div>
+                    <br>
+                </form>
+            </div>
         </div>
     </div>
 

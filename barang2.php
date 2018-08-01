@@ -58,82 +58,80 @@
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Gantian Kad Pelajar</h1> 
+                <h1 class="page-header">Aduan Barang Hilang</h1>
                 </div>
             </div>
-                                    <div class="col-lg-6">
-                                        <form role="form" method="post" action="kadpelajar3.php">
-                                            <div class="panel-body">
-                                                <p class="text-danger" disabled>NO: C011401 *Example</p>
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">Tarikh</span>
-                                                <input type="date" name="currentdate" class="form-control">
-                                            </div>
-                                            <br><label>Kepada sesiapa yang berkenaan</label><br>
-                                            <div>
-                                                <div class="form-group input-group">
-                                                    <span class="input-group-addon">No Pelajar UiTM</span>
-                                                    <input type="text" name="matric_no" class="form-control" value="<?php echo $r1['matric_no'] ;?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">Nama Pelajar</span>
-                                                <input type="text" name="name" class="form-control" value="<?php echo $r1['name'] ;?>">
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">Kursus</span>
-                                                <input type="text" name="prog_code" class="form-control" value="<?php echo $r1['prog_code'] ;?>">
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">Fakulti</span>
-                                                <input type="text" name="faculty" class="form-control" value="<?php echo $r1['faculty'] ;?>">
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">Alamat Kolej Kediaman</span>
-                                                <input type="text" name="address" class="form-control" value="<?php echo $r1['address'] ;?>">
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">No Telefon</span>
-                                                <input type="text" name="phone_no" class="form-control" value="<?php echo $r1['phone_no'] ;?>">
-                                            </div>
-                                            <label>
-                                            Anda disahkan bahawa Kad Pelajar yang tersebut yang tersebut diatas:-
-                                            </label><br>
-                                            <br><label>1. Telah ditahan sementara untuk kesalahan tatatertib.
-                                            </label>
-                                            <br><label>2. Telah hilang dan menungggu penggantian. Salinan ini sah sehingga</label>
-                                                <div class="col-lg-6">
-                                                    <input type="date" name="validuntil" class="form-control">
-                                                </div>
+        <div class="col-lg-6">
+            <form role="form" method="post" action="kadpelajar3.php">
+                <div class="panel-body">
+                    <p class="text-danger" disabled>NO: C011401 *Example</p>
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon">Tarikh</span>
+                    <input type="date" name="currentdate" class="form-control">
+                </div>
+                <br><label>Kepada sesiapa yang berkenaan</label><br>
+                <div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon">No Pelajar UiTM</span>
+                        <input type="text" name="matric_no" class="form-control" value="<?php echo $r1['matric_no'] ;?>">
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon">Nama Pelajar</span>
+                    <input type="text" name="name" class="form-control" value="<?php echo $r1['name'] ;?>">
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon">Kursus</span>
+                    <input type="text" name="prog_code" class="form-control" value="<?php echo $r1['prog_code'] ;?>">
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon">Fakulti</span>
+                    <input type="text" name="faculty" class="form-control" value="<?php echo $r1['faculty'] ;?>">
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon">Alamat Kolej Kediaman</span>
+                    <input type="text" name="address" class="form-control" value="<?php echo $r1['address'] ;?>">
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon">No Telefon</span>
+                    <input type="text" name="phone_no" class="form-control" value="<?php echo $r1['phone_no'] ;?>">
+                </div>
+                <label>
+                Anda disahkan bahawa Kad Pelajar yang tersebut yang tersebut diatas:-
+                </label><br><br>
+                <label>1. Telah ditahan sementara untuk kesalahan tatatertib.</label><br>
+                <label>2. Telah hilang dan menungggu penggantian. Salinan ini sah sehingga</label>
+                <div class="col-lg-6">
+                    <input type="date" name="validuntil" class="form-control">
+                </div>
 
-                                                <br><br><br><label>Terima Kasih</label>
-                                                <br><label>Yang menjalankan tugas,</label>
-                                                <br><br><br><br>
-                                                <label>.................................................</label>
-                                                <br><label>(________________________)</label>
-                                                <br><br><label>b/p Ketua Pejabat polis Bantuan</label>
-                                                <br><label>Universiti Teknologi MARA(Pahang)</label>
-                                                <br><br>
-                                                <label>Rujukan No. Lapran PB 05:</label><br>
-                                                <div class="col-lg-6">
-                                                    <input type="text" name="refer" class="form-control">
-                                                </div>
-                                                <br><br><br><br><label>Nota:</label>
-                                                <br><label>1.  Gantian Kad Pintar RM30.00 (Sila buat bayaran di Bahagian Bendahari).</label>
-                                                <br><label>2.  Urusan membuat kad di info Tech</label>
-                                                <br><br><br><br>
-                                                <label>Salinan Pertama : Penama</label><br>
-                                                <button type="submit" name="submit" class="btn btn-info">Submit</button>
-                                                <button type="button" class="btn btn-default"><a href="kadpelajar.php">Go Back</a></button>
-                                                <br><br><br><br>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    </div>
+            <br><br><br><label>Terima Kasih</label>
+            <br><label>Yang menjalankan tugas,</label>
+            <br><br><br><br>
+            <label>.................................................</label>
+            <br><label>(________________________)</label>
+            <br><br><label>b/p Ketua Pejabat polis Bantuan</label>
+            <br><label>Universiti Teknologi MARA(Pahang)</label>
+            <br><br>
+            <label>Rujukan No. Lapran PB 05:</label><br>
+            <div class="col-lg-6">
+            <input type="text" name="refer" class="form-control">
+            </div>
+            <br><br><br><br><label>Nota:</label>
+            <br><label>1.  Gantian Kad Pintar RM30.00 (Sila buat bayaran di Bahagian Bendahari).</label>
+            <br><label>2.  Urusan membuat kad di info Tech</label>
+            <br><br><br><br>
+            <label>Salinan Pertama : Penama</label><br>
+            <button type="submit" name="submit" class="btn btn-info">Submit</button>
+            <button type="button" class="btn btn-default"><a href="kadpelajar.php">Go Back</a></button>
+            <br><br><br><br>
+            </form>
+        </div>
+        </div>
+    </div>
 
             <!-- ... Your content goes here ... -->
             
