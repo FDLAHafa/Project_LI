@@ -101,7 +101,8 @@
                                                     <option value="Lelaki">Lelaki</option>
                                                     <option value="Peremppuan">Perempuan</option>
                                             </select>
-                                        </div>  
+                                        </div>
+                                        <button type="submit" class="btn btn-info" name="submit" >Register</button>
                                         </form>               
                                     
                 <div class="row">

@@ -131,14 +131,20 @@
             return $facArr[$int];
         }
 
-        $fskm = "SELECT * from kp where faculty LIKE '%FSKM%' ";
+        $fskm = "SELECT * from kad where faculty LIKE '%FSKM%' ";
         $fskmTest = mysqli_query($dbconn,$fskm);
-        if ($fskmTest == null) {$fskmCou nt = 0;}
+        if ($fskmTest == null) {$fskmCount = 0;}
         else {$fskmCount = mysqli_num_rows($fskmTest);}
 
-        $facCountArr = array($fskmCount);
+        $fsppp = "SELECT * from kad where faculty LIKE '%FSPPP%' ";
+        $fspppTest = mysqli_query($dbconn,$fsppp);
+        if ($fspppTest == null) {$fspppCount = 0;}
+        else {$fspppCount = mysqli_num_rows($fspppTest);}
+
+        $facCountArr = array($fskmCount,$fspppCount);
 
         $iterFac = 0;
+        $countFac = '';
         foreach($facCountArr as $facCount)
         {
             $fac = intToFac($iterFac);
@@ -222,7 +228,7 @@
                                                     ],
                                             xkey: 'a',
                                             ykeys:['b'],
-                                            labels:['Faculty'],
+                                            labels:['Fakulti'],
                                             hideHover:'auto',
                                         });
                                         </script>
