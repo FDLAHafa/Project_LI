@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,82 +33,77 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
-<body>
-    <?php
-    include("dbconn.php");
-    session_start();
-        if(isset($_SESSION['staff_ID'])) 
-        {
+    </head>
+    <body>
+        <?php
+            include("dbconn.php");
+            session_start();
+            if(isset($_SESSION['staff_ID']))
+            {
+                $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID']."";
+                $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));
+                $r = mysqli_fetch_assoc($query0);
+            }
+        ?>
 
-        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID'].""; 
-        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));        
-        $r = mysqli_fetch_assoc($query0);
-
-        }
-    ?>
-
-<div id="wrapper">
-<?php include("DashboardOnly.php");?>
-</body>
-</html>
-    <!-- Page Content -->
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <br>
-                    <h1>Laporan Kad Pelajar Hilang</h1>
-                    <br>
+    <div id="wrapper">
+        <?php include("DashboardOnly.php");?>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <br>
+                        <h1>Laporan Kad Pelajar Hilang</h1>
+                        <br>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                        <div class="dataTable_wrapper">
-                        <div class="dataTables_length" id="dataTables-example_length">
-                            <div class="row show-grid">
-                            <div class="col-md-12">
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                        <thead>
-                                            <tr>
-                                                <th>No Siri</th>
-                                                <th>Tarikh</th>
-                                                <th>Kad Matrik</th>
-                                                <th>Nama</th>
-                                                <th>Kod Program</th>
-                                                <th>Fakulti</th>
-                                                <th>Alamat</th>
-                                                <th>No Telefon</th>
-                                                <th>Sah Sehingga</th>
-                                                <th>No Rujukan (PB05)</th>
-                                            </tr>
-                                        </thead>
-
-                    <?php 
-
-                    $sql = "SELECT * FROM kad ORDER BY series_no";
-                    $query = mysqli_query($dbconn, $sql) or die("Error: " . mysqli_error($dbconn));
-                    $row = mysqli_num_rows($query); // Count the record of table to see it's not empty                   
-                    if($row != 0) {
-                        while($ro = mysqli_fetch_assoc($query)){
-                        
-                                        echo "<tbody>";
-                                        echo "<tr>";
-                                        echo "<td>".$ro['series_no']."</td>";
-                                        echo "<td>".$ro['currentdate']."</td>";
-                                        echo "<td>".$ro['matric_no']."</td>";
-                                        echo "<td>".$ro['name']."</td>";
-                                        echo "<td>".$ro['prog_code']."</td>";
-                                        echo "<td>".$ro['faculty']."</td>";
-                                        echo "<td>".$ro['address']."</td>";
-                                        echo "<td>".$ro['phone_no']."</td>";
-                                        echo "<td>".$ro['validuntil']."</td>";
-                                        echo "<td>".$ro['refer']."</td>";
-                                        echo "</tr>";
-                                            }
-                                            } ?>
-                                        
-                                    </table>
-                                </div>
-                            </div>
+                            <div class="dataTable_wrapper">
+                                <div class="dataTables_length" id="dataTables-example_length">
+                                    <div class="row show-grid">
+                                        <div class="col-md-12">
+                                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            <thead>
+                                                <tr>
+                                                    <th>No Siri</th>
+                                                    <th>Tarikh</th>
+                                                    <th>Kad Matrik</th>
+                                                    <th>Nama</th>
+                                                    <th>Kod Program</th>
+                                                    <th>Fakulti</th>
+                                                    <th>Alamat</th>
+                                                    <th>No Telefon</th>
+                                                    <th>Sah Sehingga</th>
+                                                    <th>No Rujukan (PB05)</th>
+                                                </tr>
+                                            </thead>
+                                                <?php
+                                                    $sql = "SELECT * FROM kad ORDER BY series_no";
+                                                    $query = mysqli_query($dbconn, $sql) or die("Error: " . mysqli_error($dbconn));
+                                                    $row = mysqli_num_rows($query); // Count the record of table to see it's not empty
+                                                    if($row != 0)
+                                                    {
+                                                        while($ro = mysqli_fetch_assoc($query))
+                                                        {
+                                                            echo "<tbody>";
+                                                            echo "<tr>";
+                                                            echo "<td>".$ro['series_no']."</td>";
+                                                            echo "<td>".$ro['currentdate']."</td>";
+                                                            echo "<td>".$ro['matric_no']."</td>";
+                                                            echo "<td>".$ro['name']."</td>";
+                                                            echo "<td>".$ro['prog_code']."</td>";
+                                                            echo "<td>".$ro['faculty']."</td>";
+                                                            echo "<td>".$ro['address']."</td>";
+                                                            echo "<td>".$ro['phone_no']."</td>";
+                                                            echo "<td>".$ro['validuntil']."</td>";
+                                                            echo "<td>".$ro['refer']."</td>";
+                                                            echo "</tr>";
+                                                        }
+                                                    }
+                                                ?>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -116,19 +111,19 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
 
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/metisMenu.min.js"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/startmin.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="js/startmin.js"></script>
-
-</body>
+    </body>
 </html>
