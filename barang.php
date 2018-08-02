@@ -38,50 +38,41 @@
     <?php
     include("dbconn.php");
     session_start();
-        if(isset($_SESSION['staff_ID'])) 
+    if(isset($_SESSION['staff_ID']))
         {
-
-        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID'].""; 
-        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));        
-        $r = mysqli_fetch_assoc($query0);
+            $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID']."";
+            $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));
+            $r = mysqli_fetch_assoc($query0);
         }
     ?>
 
-<div id="wrapper">
-<?php include("DashboardOnly.php");?>
-</body>
-</html>
-    <!-- Page Content -->
-    <div id="page-wrapper">
-        <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Aduan Kehilangan Barang</h1> 
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <form role="form" method="post" action="barang1.php">
-                    <div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">No Pelajar UiTM</span>
-                            <input type="text" name="matric_no" class="form-control">
-                        </div>
-                        <button type="submit" name="check" class="btn btn-success">Check</button>
+    <div id="wrapper">
+        <?php include("DashboardOnly.php");?>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Aduan Kehilangan Barang</h1>
                     </div>
-                    <br>
-                </form>
+                </div>
+                <div class="col-lg-6">
+                    <form role="form" method="post" action="barang1.php">
+                        <div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">No Pelajar UiTM</span>
+                                <input type="text" name="matric_no" class="form-control">
+                            </div>
+                            <button type="submit" name="check" class="btn btn-success">Check</button>
+                        </div>
+                        <br>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
             <!-- ... Your content goes here ... -->
-            
-
-        </div>
-    </div>
-
-</div>
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
