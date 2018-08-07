@@ -151,13 +151,13 @@
             }
             $count = substr($count,0,-1);
         ?>
-        
+
     </head>
     <body>
         <?php
             include("dbconn.php");
             session_start();
-            if(isset($_SESSION['staff_ID'])) 
+            if(isset($_SESSION['staff_ID']))
             {
 
                 $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID']."";
