@@ -223,7 +223,7 @@
 
                         </div>
 
-                        <button type="submit" name="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" name="submit" class="btn btn-default" >Submit</button>
                         <button type="reset" class="btn btn-default">Reset Form</button>
                         <br><br><br><br>
                     </form>
@@ -231,6 +231,7 @@
                 <!-- ... Your content goes here ... -->
             </div>
         </div>
+
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>
 

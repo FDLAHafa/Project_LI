@@ -1,4 +1,4 @@
-<?php 
+ <?php
 //index.php
 $connect = mysqli_connect("localhost", "root", "", "testing");
 $query = "SELECT * FROM account";
@@ -20,13 +20,22 @@ $chart_data = substr($chart_data, 0, -1);
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-  
+
+  <style>
+  .gridcont {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .grid-item {
+  }
+  </style>
+
  </head>
  <body>
   <br /><br />
   <div class="container" style="width:900px;">
    <h2 align="center">Morris.js chart with PHP & Mysql</h2>
-   <h3 align="center">Last 10 Years Profit, Purchase and Sale Data</h3>   
+   <h3 align="center">Last 10 Years Profit, Purchase and Sale Data</h3>
    <br /><br />
    <div id="chart"></div>
   </div>
@@ -44,3 +53,14 @@ Morris.Bar({
  stacked:true
 });
 </script>
+
+<div class="gridcont">
+  <div class="grid-item">ikan</div>
+  <div class="grid-item">masin</div>
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+</div>
