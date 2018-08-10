@@ -39,7 +39,7 @@
 
         <!--PHP segement for tables and charts -->
         <?php
-            include 'dbconn.php';
+            include ("dbconn.php");
 
             //php code for violations
 
