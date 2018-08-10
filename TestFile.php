@@ -64,3 +64,14 @@ Morris.Bar({
   <div class="grid-item">5</div>
   <div class="grid-item">6</div>
 </div>
+
+<script>
+function printContent(el){
+var restorepage = $('body').html();
+var printcontent = $('#' + el).clone();
+$('body').empty().html(printcontent);
+window.print();
+$('body').html(restorepage);
+}
+</script>
+<button id="print" onclick="printContent('id name of your div');" >Print</button>
