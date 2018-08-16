@@ -40,68 +40,59 @@
         <!--PHP segement for tables and charts -->
         <?php
             include ("dbconn.php");
-
+            $currentYear = date("Y");
             //php code for violations
-
-            $jan = "SELECT * from kp where month(summon_date) = 01 ";
-            $janTest = mysqli_query($dbconn,$jan);
-            if ($janTest == null) {$janCount = 0;}
-            else {$janCount = mysqli_num_rows($janTest);}
-
-            $feb = "SELECT * from kp where month(summon_date) = 02 ";
-            $febTest = mysqli_query($dbconn,$feb);
-            if ($febTest == null) {$febCount = 0;}
-            else {$febCount = mysqli_num_rows($febTest);}
-
-            $mar = "SELECT * from kp where month(summon_date) = 03 ";
-            $marTest = mysqli_query($dbconn,$mar);
-            if ($marTest == null) {$marCount = 0;}
-            else {$marCount = mysqli_num_rows($marTest);}
-
-            $apr = "SELECT * from kp where month(summon_date) = 04 ";
-            $aprTest = mysqli_query($dbconn,$apr);
-            if ($aprTest == null) {$aprCount = 0;}
-            else {$aprCount = mysqli_num_rows($aprTest);}
-
-            $may = "SELECT * from kp where month(summon_date) = 05 ";
-            $mayTest = mysqli_query($dbconn,$may);
-            if ($mayTest == null) {$mayCount = 0;}
-            else {$mayCount = mysqli_num_rows($mayTest);}
-
-            $jun = "SELECT * from kp where month(summon_date) = 06 ";
-            $junTest = mysqli_query($dbconn,$jun);
-            if ($junTest == null) {$junCount = 0;}
-            else {$junCount = mysqli_num_rows($junTest);}
-
-            $jul = "SELECT * from kp where month(summon_date) = 07 ";
-            $julTest = mysqli_query($dbconn,$jul);
-            if ($julTest == null) {$julCount = 0;}
-            else {$julCount = mysqli_num_rows($julTest);}
-
-            $aug = "SELECT * from kp where month(summon_date) = 08 ";
-            $augTest = mysqli_query($dbconn,$aug);
-            if ($augTest == null) {$augCount = 0;}
-            else {$augCount = mysqli_num_rows($augTest);}
-
-            $sep = "SELECT * from kp where month(summon_date) = 09 ";
-            $sepTest = mysqli_query($dbconn,$sep);
-            if ($sepTest == null) {$sepCount = 0;}
-            else {$sepCount = mysqli_num_rows($sepTest);}
-
-            $oct = "SELECT * from kp where month(summon_date) = 10 ";
-            $octTest = mysqli_query($dbconn,$oct);
-            if ($janTest == null) {$janCount = 0;}
-            else {$octCount = mysqli_num_rows($octTest);}
-
-            $nov = "SELECT * from kp where month(summon_date) = 11 ";
-            $novTest = mysqli_query($dbconn,$nov);
-            if ($novTest == null) {$novCount = 0;}
-            else {$novCount = mysqli_num_rows($novTest);}
-
-            $dec = "SELECT * from kp where month(summon_date) = 12 ";
-            $decTest = mysqli_query($dbconn,$dec);
-            if ($decTest == null) {$decCount = 0;}
-            else {$decCount = mysqli_num_rows($decTest);}
+            $janCount=$febCount=$marCount=$aprCount=$mayCount=$junCount=$julCount=$augCount=$sepCount=$octCount=$novCount=$decCount=0;
+            for ($i = 1;$i<=12;$i++)
+            {
+              $monthSQL = "SELECT * FROM kp WHERE month(summon_date) = '".$i."' and year(summon_date) = '".$currentYear."'";
+              $monTest = mysqli_query($dbconn,$monthSQL);
+              $summonDate = mysqli_fetch_assoc($monTest);
+              if ($monTest == null)
+              {
+                $monCount = 0;
+              }
+              else
+              {
+                  $monCount = mysqli_num_rows($monTest);
+              }
+              if ($i == 1){
+                $janCount = $monCount;
+              }
+              elseif ($i == 2) {
+                $febCount = $monCount;
+              }
+              elseif ($i == 3) {
+                $marCount = $monCount;
+              }
+              elseif ($i == 4) {
+                $aprCount = $monCount;
+              }
+              elseif ($i == 5) {
+                $mayCount = $monCount;
+              }
+              elseif ($i == 6) {
+                $junCount = $monCount;
+              }
+              elseif ($i == 7) {
+                $julCount = $monCount;
+              }
+              elseif ($i == 8) {
+                $augCount = $monCount;
+              }
+              elseif ($i == 9) {
+                $sepCount = $monCount;
+              }
+              elseif ($i == 10) {
+                $octCount = $monCount;
+              }
+              elseif ($i == 11) {
+                $novCount = $monCount;
+              }
+              elseif ($i == 12) {
+                $decCount = $monCount;
+              }
+            }
 
             $countArr = array($janCount,$febCount,$marCount,$aprCount,$mayCount,$junCount,$julCount,$augCount,$sepCount,$octCount,$novCount,$decCount);
 
@@ -129,12 +120,12 @@
                 return $facArr[$int];
             }
 
-            $fskm = "SELECT * from kad where faculty LIKE '%FSKM%' ";
+            $fskm = "SELECT * from kad where faculty LIKE '%FSKM%'and year(currentdate) = '".$currentYear."'";
             $fskmTest = mysqli_query($dbconn,$fskm);
             if ($fskmTest == null) {$fskmCount = 0;}
             else {$fskmCount = mysqli_num_rows($fskmTest);}
 
-            $fsppp = "SELECT * from kad where faculty LIKE '%FSPPP%' ";
+            $fsppp = "SELECT * from kad where faculty LIKE '%FSPPP%' and year(currentdate) = '".$currentYear."'";
             $fspppTest = mysqli_query($dbconn,$fsppp);
             if ($fspppTest == null) {$fspppCount = 0;}
             else {$fspppCount = mysqli_num_rows($fspppTest);}
@@ -182,7 +173,7 @@
                     <!-- row for dash items -->
                     <div class="col-lg-6">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Jumlah Saman Bulanan</div>
+                            <div class="panel-heading">Jumlah Saman Tahun <?php echo $currentYear;?></div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div id='violations' style="height: 250px;">
@@ -206,7 +197,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Jumlah Kehilangan Kad Matrik</div>
+                            <div class="panel-heading">Jumlah Kehilangan Kad Matrik <?php echo $currentYear; ?></div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div id='lostMatric' style="height: 250px;">
@@ -225,36 +216,6 @@
                                 </div>
                             </div>
                             <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Jumlah Saman Bulanan</div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div id='chart2' style="height: 250px;">
-                                    <script>
-                                        Morris.Bar({
-                                        element : 'chart2',
-                                        data:[
-                                        {a : 1,b : 1},
-                                        {a : 2,b : 4},
-                                        {a : 3,b : 6},
-                                        {a : 4,b : 8},
-                                        {a : 5,b : 10},
-                                        {a : 6,b : 12},
-                                        {a : 7,b : 14},
-                                        ],
-                                        xkey: 'a',
-                                        ykeys:['b'],
-                                        labels:['Y-axis'],
-                                        hideHover:'auto',
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                        <!-- /.panel-body -->
                         </div>
                         <!-- /.panel -->
                     </div>

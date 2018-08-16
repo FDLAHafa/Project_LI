@@ -1,5 +1,6 @@
  <?php
 //index.php
+include("serial.php");
 $connect = mysqli_connect("localhost", "root", "", "testing");
 $query = "SELECT * FROM account";
 $result = mysqli_query($connect, $query);
@@ -126,3 +127,19 @@ $('body').html(restorepage);
     </div>
   </div>
 </form>
+<?php
+  include("dbconn.php");
+
+  $currentYear = date("Y");
+  $summonConvert = date_create_from_format("yyyy-mm-dd",$summonDate['summon_date']);
+  $summonYear = date("Y",$summonConvert);
+  echo $currentYear."             ".$summonYear;
+
+
+  $SerialNumberGenerator = new SerialNumberGenerator();
+  $serial_number = $SerialNumberGenerator->generate();
+  unset($SerialNumberGenerator);
+
+  echo $serial_number;
+
+?>
