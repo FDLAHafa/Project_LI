@@ -96,7 +96,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" class=""><i class="fa fa-hand-pointer-o fa-fw"></i> Aduan Awal (FIR)</a>
+                    <a href="fir.php" class=""><i class="fa fa-hand-pointer-o fa-fw"></i> Aduan Awal (FIR)</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-clipboard fa-fw"></i> Aduan <span class="fa arrow"></span></a>
