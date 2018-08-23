@@ -6,6 +6,15 @@
       grid-template-columns: 375px 375px;
     }
     .grid-item {}
+    .flexCont {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .flexItem{
+      flex-basis: 50%;
+      flex-grow: 1;
+    }
 
     .whitespace {
       display: grid;
@@ -26,6 +35,23 @@
       font-size: 15;
     }
     </style>
+
+    <?php
+      $i = 0;
+      $name = 'a';
+      $kp ='b';
+      $matric ='c';
+      $course ='d';
+      $faculty ='e';
+      $college ='f';
+      $lostDate ='g';
+      $lostTime ='h';
+      $lostPlace ='i';
+      $lostReport ='j';
+      $reportDate ='k';
+      $lostArr = array();
+      //<div class="flexItem">A) </div> <div class="flexItem">D) </div>
+     ?>
   </head>
   <body>
     <div id="print_pb05">
@@ -55,28 +81,31 @@
       </div><p>
       <div class="whitespace">
         <div class="wsitem">
-        Nama                :<?php?><br>
-        No. Kad Pengenalan  :<?php?><br>
-        No. KP UiTM         :<?php?><br>
-        Kursus/Jawatan      :<?php?><br>
-        Fakulti/Bahagian    :<?php?><br>
-        Alamat/Kolej        :<?php?><br>
+        Nama                :<?php echo $name;?><br>
+        No. Kad Pengenalan  :<?php echo $kp;?><br>
+        No. KP UiTM         :<?php echo $matric;?><br>
+        Kursus/Jawatan      :<?php echo $course;?><br>
+        Fakulti/Bahagian    :<?php echo $faculty;?><br>
+        Alamat/Kolej        :<?php echo $college;?><br>
         <div class="gridcont">
-        <div class="grid-item">Tarikh Hilang       :<?php?></div>                     <div class="grid-item">Masa :<?php?></div><br>
+        <div class="grid-item">Tarikh Hilang       :<?php echo $lostDate;?></div>                     <div class="grid-item">Masa :<?php echo $lostTime;?></div><br>
         </div>
-        Tempat Kehilangan   :<?php?><p>
+        Tempat Kehilangan   :<?php echo $lostPlace;?><p>
 
         1.  Saya nama yang tersebut di atas ingin membuat laporan iaitu <br>
             &emsp;saya telah kehilangan barang-barang yang berikut :<br>
-            &emsp;(Tuliskan jumlah wang/anggaran dan nombor kad yang hilang sekiranya berkaitan):-<br>
             <div class="gridcont">
-              <div class="grid-item">A) <?php?></div> <div class="grid-item">D) <?php?></div>
-              <div class="grid-item">B) <?php?></div> <div class="grid-item">E) <?php?></div>
-              <div class="grid-item">C) <?php?></div> <div class="grid-item">F) <?php?></div>
+              <div class="flexCont">
+                <?php
+                  foreach ($lostArr as $lostItem) {
+                    echo $lostItem;
+                  }
+                ?>
+              </div>
           </div>
           <p>
         2.	Laporan ringkas bagaimana kehilangan berlaku.<p></div>
-            <div class="wsitem"><?php?></div>
+            <div class="wsitem"><?php echo $lostReport;?></div>
 <div class="wsitem">
 <pre class="main">
 Sekian.
@@ -105,7 +134,7 @@ Bertarikh ...............................
               Pindaan :
             </td>
             <td>
-              Tarikh : <?php?>
+              Tarikh : <?php echo $reportDate;?>
             </td>
           </tr>
         </table>

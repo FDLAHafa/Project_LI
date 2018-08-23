@@ -1,5 +1,15 @@
 <html>
 <head>
+  <?php
+  if(isset())
+  {
+    $name;
+    $matric;
+    $college;
+    $faculty;
+    $tel;
+  }
+  ?>
   <script>
   function printdiv(printdivname)
     {
@@ -80,12 +90,12 @@
     </div>
         <div>
           <p>Kepada sesiapa yang berkenaan</p>
-          <p>Nama Pelajar <?php ?></p>
-          <p>No Pelajar UiTM / Kad Pengenalan <?php ?></p>
-          <p>Kursus <?php ?></p>
-          <p>Fakulti  <?php ?></p>
-          <p>Alamat Kolej Kediaman <?php ?></p>
-          <p>No Telefon <?php ?></p>
+          <p>Nama Pelajar <?php echo $name; ?></p>
+          <p>No Pelajar UiTM / Kad Pengenalan <?php echo $matric;?></p>
+          <p>Kursus <?php echo $course;?></p>
+          <p>Fakulti  <?php echo $faculty;?></p>
+          <p>Alamat Kolej Kediaman <?php echo $college;?></p>
+          <p>No Telefon <?php echo $tel;?></p>
 
           <p>Adalah disahkan bahawa <b>Kad Pelajar</b> yang tersebut diatas:-</p>
           <p>1.Telah ditahan sementara untuk kesalahan tatatertib.</p>

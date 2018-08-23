@@ -49,6 +49,19 @@
       margin:10px;
     }
   </style>
+  <?php
+  if (isset())
+  {
+    $name;
+    $matric;
+    $program;
+    $date;
+    $time;
+    $violation;
+    $summon;
+    $summonDate;
+  }
+  ?>
 </head>
 <body style="font-family:Calibri; font-size:14;">
   <button id="print" onclick="printdiv('summon');">Print Summon</button>
@@ -73,35 +86,35 @@
     </div>
     <div class="flexCol">
       <div class="flexItem" >
-        &nbsp;&nbsp;Nama: <?php?>placeholder
+        &nbsp;&nbsp;Nama: <?php echo $name; ?>
       </div>
       <div class="flexCol">
         <div class="flexRow">
           <div class="flexItem">
-            KP: <?php?>placeholder
+            KP: <?php echo $ic; ?>
           </div>
           <div class="flexItem">
-            Matrik: <?php?>placeholder
+            Matrik: <?php echo $matric;?>
           </div>
           <div class="flexItem">
-            Program: <?php?>placeholder
+            Program: <?php echo $program;?>
           </div>
         </div>
       </div>
       <div class="flexCol">
         <div class="flexRow">
           <div class="flexItem">
-            Tarikh: <?php?>placeholder
+            Tarikh: <?php echo $date;?>
           </div>
           <div class="flexItem">
-            Masa: <?php?>placeholder
+            Masa: <?php echo $time; ?>
           </div>
         </div>
       </div>
       <div class="flexCol">
         <div class="flexRow">
           <div class="flexItem">Kesalahan</div>
-          <div class="flexItem"><?php?>placeholder</div>
+          <div class="flexItem"><?php echo $violation;?></div>
         </div>
       </div>
       <div class="flexCol">
@@ -115,7 +128,7 @@
           <div class="flexItem">
                 ............................................................................<br>
                 Tandatangan Pelapor<br>
-                Nama : <?php?>placeholder<br>
+                Nama : <?php echo $reporter?>placeholder<br>
                 Pihak Berkuasa Tatatertib<br>
                 b.p. Pegawai Hal Ehwal Pelajar
           </div>
@@ -129,7 +142,7 @@
         <div class="flexRow">
           <div class="flexItem">
             <label>Dibawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan ini boleh dikenakan kompaun tidak melebihi RM50.00 bagi setiap kesalahan. Anda dikehendaki membayar kompaun sebanyak</label>
-            <?php?>placeholder sebelum <?php?>placeholder <label>jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
+            <?php echo $summon;?>placeholder sebelum <?php echo $summonDate;?>placeholder <label>jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
           </div>
         </div>
       </div>
@@ -140,7 +153,7 @@
             <br><label>Pegawai Hal Ehwal Pelajar</label>
           </div>
           <div class="flexItem">
-            <label><?php?>placeholder</label><br>
+            <label>.................................................</label><br>
             <label>Tarikh</label>
           </div>
         </div>
