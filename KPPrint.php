@@ -50,17 +50,23 @@
     }
   </style>
   <?php
-  if (isset())
+  include("dbconn.php");
+  if (isset($_POST["print"]))
   {
-    $name;
-    $matric;
-    $program;
-    $date;
-    $time;
-    $violation;
-    $summon;
-    $summonDate;
+    $sql0 = "SELECT * from kp WHERE series_no = ".$_POST['print']."";
+    $sql1 = mysqli_query($dbconn,$sql0) or die ("Error: ".mysqli_error($dbconn));
+    $data = mysqli_fetch_assoc($sql1);
+    $name = $data["name"];
+    $matric = $data["matric_no"];
+    $ic = $data["mykad_no"];
+    $program = $data["prog_code"];
+    $date = $data["summon_date"];
+    $time = $data["summon_time"];
+    $violation = $data["summons"];
+    $summon = $data["rm"];
+    $appealDate = $data["paybefore"];
   }
+  else {echo "fish";  }
   ?>
 </head>
 <body style="font-family:Calibri; font-size:14;">
@@ -128,7 +134,7 @@
           <div class="flexItem">
                 ............................................................................<br>
                 Tandatangan Pelapor<br>
-                Nama : <?php echo $reporter?>placeholder<br>
+                Nama : <p>
                 Pihak Berkuasa Tatatertib<br>
                 b.p. Pegawai Hal Ehwal Pelajar
           </div>
@@ -142,7 +148,7 @@
         <div class="flexRow">
           <div class="flexItem">
             <label>Dibawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan ini boleh dikenakan kompaun tidak melebihi RM50.00 bagi setiap kesalahan. Anda dikehendaki membayar kompaun sebanyak</label>
-            <?php echo $summon;?>placeholder sebelum <?php echo $summonDate;?>placeholder <label>jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
+            <?php echo $summon;?> sebelum <?php echo $appealDate;?> <label>. Jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
           </div>
         </div>
       </div>

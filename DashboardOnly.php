@@ -113,6 +113,9 @@
                 <li>
                     <a href="#"><i class="fa fa-wpforms fa-fw"></i> Laporan <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
+                      <li>
+                          <a href="rfir.php">Aduan Awal(FIR)</a>
+                      </li>
                     <li>
                         <a href="rkadpelajar.php">Kad Pelajar Hilang</a>
                     </li>

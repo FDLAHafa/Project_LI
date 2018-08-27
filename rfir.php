@@ -46,11 +46,11 @@
     <?php
     include("dbconn.php");
     session_start();
-        if(isset($_SESSION['staff_ID']))
+        if(isset($_SESSION['staff_ID'])) 
         {
 
-        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID']."";
-        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));
+        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID'].""; 
+        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));        
         $r = mysqli_fetch_assoc($query0);
 
         }
@@ -64,7 +64,7 @@
    <div id="page-wrapper">
                 <div class="col-lg-14">
                     <br>
-                    <h1>Laporan Saman Sahsiah Rupa Diri (SRD)</h1>
+                    <h1>Laporan Kad Pelajar Hilang</h1>
                     <br>
                         <!-- /.panel-heading -->
                 <div class="row">
@@ -79,71 +79,76 @@
                                         <thead>
                                             <tr>
                                                 <th>No Siri</th>
-                                                <th>Jantina</th>
                                                 <th>Nama</th>
-                                                <th>Kad Matrik</th>
                                                 <th>Kad Pengenalan</th>
+                                                <th>No Matriks</th>
                                                 <th>Kod Program</th>
-                                                <th>Tarikh Saman</th>
-                                                <th>Masa Saman</th>
-                                                <th>Tempat Saman</th>
-                                                <th>Kesalahan</th>
-                                                <th>Kompaun</th>
-                                                <th>Tarikh Akhir Pembayaran</th>
+                                                <th>Fakulti</th>
+                                                <th>Alamat</th>
+                                                <th>No Telefon</th>
+                                                <th>Tarikh Hilang</th>
+                                                <th>Masa Hilang</th>
+                                                <th>Tempat Hilang</th>
+                                                <th>Barang Hilang</th>
+                                                <th>Keterangan</th>
                                                 <th style="color:green">Print</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                    <?php
+                    <?php 
 
-                    $sql = "SELECT * FROM kp";
+                    $sql = "SELECT * FROM complain ORDER BY series_no";
                     $query = mysqli_query($dbconn, $sql) or die("Error: " . mysqli_error($dbconn));
-                    $row = mysqli_num_rows($query); // Count the record of table to see it's not empty
+                    $row = mysqli_num_rows($query); // Count the record of table to see it's not empty                   
                     if($row != 0) {
                         while($ro = mysqli_fetch_assoc($query)){
-
+                        
                                         echo "<tr>";
                                         echo "<td>".$ro['series_no']."</td>";
                                         echo "<input type='text' style='display:none' name='series_no' value='".$ro['series_no']."'>";
-                                        echo "<td>".$ro['gender']."</td>";
-                                        echo "<input type='text' style='display:none' name='gender' value='".$ro['gender']."'>";
                                         echo "<td>".$ro['name']."</td>";
-                                        echo "<input type='text' style='display:none' name='name' value='".$ro['name']."'>";
+                                        echo "<input type='date' style='display:none' name='name' value='".$ro['name']."'>";
+                                        echo "<td>".$ro['ic_number']."</td>";
+                                        echo "<input type='text' style='display:none' name='ic_number' value='".$ro['ic_number']."'>";
                                         echo "<td>".$ro['matric_no']."</td>";
                                         echo "<input type='text' style='display:none' name='matric_no' value='".$ro['matric_no']."'>";
-                                        echo "<td>".$ro['mykad_no']."</td>";
-                                        echo "<input type='text' style='display:none' name='mykad_no' value='".$ro['mykad_no']."'>";
-                                        echo "<td>".$ro['prog_code']."</td>";
-                                        echo "<input type='text' style='display:none' name='prog_code' value='".$ro['prog_code']."'>";
-                                        echo "<td>".$ro['summon_date']."</td>";
-                                        echo "<input type='date' style='display:none' name='summon_date' value='".$ro['summon_date']."'>";
-                                        echo "<td>".$ro['summon_time']."</td>";
-                                        echo "<input type='text' style='display:none' name='summon_time' value='".$ro['summon_time']."'>";
-                                        echo "<td>".$ro['summon_place']."</td>";
-                                        echo "<input type='text' style='display:none' name='summon_place' value='".$ro['summon_place']."'>";
-                                        echo "<td>".$ro['summons']."</td>";
-                                        echo "<input type='text' style='display:none' name='summons' value='".$ro['summons']."'>";
-                                        echo "<td>".$ro['rm']."</td>";
-                                        echo "<input type='text' style='display:none' name='rm' value='".$ro['rm']."'>";
-                                        echo "<td>".$ro['paybefore']."</td>";
-                                        echo "<input type='date' style='display:none' name='paybefore' value='".$ro['paybefore']."'>";
-                                        echo '<td><form method = "POST"><button type="submit" name="print" value='.$ro['series_no'].' formaction="KPPrint.php" class="btn btn-info">Print</button></form></td>';
+                                        echo "<td>".$ro['course_code']."</td>";
+                                        echo "<input type='text' style='display:none' name='course_code' value='".$ro['course_code']."'>";
+                                        echo "<td>".$ro['faculty']."</td>";
+                                        echo "<input type='text' style='display:none' name='faculty' value='".$ro['faculty']."'>";
+                                        echo "<td>".$ro['address']."</td>";
+                                        echo "<input type='text' style='display:none' name='address' value='".$ro['address']."'>";
+                                        echo "<td>".$ro['phone_no']."</td>";
+                                        echo "<input type='text' style='display:none' name='phone_no' value='".$ro['phone_no']."'>";
+                                        echo "<td>".$ro['missDate']."</td>";
+                                        echo "<input type='date' style='display:none' name='missDate' value='".$ro['missDate']."'>";
+                                        echo "<td>".$ro['missTime']."</td>";
+                                        echo "<input type='text' style='display:none' name='missTime' value='".$ro['missTime']."'>";
+                                        echo "<td>".$ro['missPlace']."</td>";
+                                        echo "<input type='text' style='display:none' name='missPlace' value='".$ro['missPlace']."'>";
+                                        echo "<td>".$ro['missItem']."</td>";
+                                        echo "<input type='text' style='display:none' name='missItem' value='".$ro['missItem']."'>";
+                                        echo "<td>".$ro['report']."</td>";
+                                        echo "<input type='text' style='display:none' name='report' value='".$ro['report']."'>";
+                                        echo '<td><button type="submit" name="printrfir" value='.$ro['matric_no'].' formaction="printrfir.php" class="btn btn-info">Print</button></td>';
                                         echo "</tr>";
+
                                             }
                                             } ?>
                                         </tbody>
                                     </table>
                                 </div>
-                                    </div>
+                            </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
+        
+            
+        
 
 
 <!-- jQuery -->

@@ -1,15 +1,5 @@
 <html>
 <head>
-  <?php
-  if(isset())
-  {
-    $name;
-    $matric;
-    $college;
-    $faculty;
-    $tel;
-  }
-  ?>
   <script>
   function printdiv(printdivname)
     {
@@ -58,6 +48,23 @@
       margin:10px;
     }
   </style>
+  <?php
+  include("dbconn.php");
+  if(isset($_POST["matricPrint"]))
+  {
+    $sql0 = "SELECT * from kad WHERE series_no = ".$_POST['matricPrint']."";
+    $sql1 = mysqli_query($dbconn,$sql0) or die ("Error: ".mysqli_error($dbconn));
+    $data = mysqli_fetch_assoc($sql1);
+    $series = $data['series_no'];
+    $name = $data['name'];
+    $matric = $data['matric_no'];
+    $course = $data['prog_code'];
+    $faculty = $data['faculty'];
+    $college = $data['address'];
+    $tel = $data['phone_no'];
+  }
+
+   ?>
 </head>
 <body style="font-family:Calibri; font-size:14;">
   <button id="print" onclick="printdiv('matric');">Print</button>
@@ -79,7 +86,7 @@
       </div>
       <div class="flexCol">
         <div class="flexItem" style="justify-content:flex-end">
-          No.c8282882 (temp)
+          No Siri :  <?php echo $series; ?>
         </div>
       </div>
         <div class="flexCol">

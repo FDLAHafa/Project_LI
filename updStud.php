@@ -46,6 +46,12 @@
         $r = mysqli_fetch_assoc($query0);
         }
     ?>
+    <?php
+    if(isset($_POST['updatebutton']));
+    {
+        $matric_no = $_POST['updatebutton']; 
+    }
+    ?>
 
 <div id="wrapper">
 <?php include("DashboardOnly.php");?>
@@ -69,49 +75,74 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form method="post" action="srs1.php">
-                                    <form>
+                                    <?php
+                                        $sql = "SELECT * FROM student WHERE matric_no = '$matric_no' "; 
+                                        $query = mysqli_query($dbconn,$sql) or die ("Error: ". mysqli_error($dbconn)); 
+                                        $row = mysqli_num_rows($query);
+                                        if ($row != 0)
+                                        {
+                                            $r = mysqli_fetch_assoc($query);
+                                        }
+                                    ?>
+                                    <form method="post" action="updStud1.php">
+                                    
                                         <div class="form-group">
                                             <label>No Matriks</label>
-                                            <input class="form-control" type="text" name="matric_no" value="" placeholder="" required>
+                                            <input class="form-control" type="text" name="matric_no" value="<?php echo $r['matric_no'] ;?>" disabled>
+                                            <p style="color:red"><b>*This value cannot be change.</b></p>
                                         </div>
+                                        <div class="form-group" style="display:none">
+                                                    <label for="disabledSelect">No Matriks</label>
+                                                    <input name="matric_no" class="form-control" id="disabledInput" type="text" value="<?php echo $r['matric_no'] ;?>" >
+                                        </div> <!-- Display Nothing But The Value Is There For Variable Purposed -->
                                         <div class="form-group">
                                             <label>Nama</label>
-                                            <input class="form-control" type="text" name="name" value="" placeholder="" required>
+                                            <input class="form-control" type="text" name="name" value="<?php echo $r['name'] ;?>" placeholder="" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Kad pengenalan</label>
-                                            <input class="form-control" type="text" name="ic_number" value="" placeholder="without dash(-)" required>
+                                            <input class="form-control" type="text" name="ic_number" value="<?php echo $r['ic_number'] ;?>" placeholder="without dash(-)" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Kursus/Jawatan</label>
-                                            <input class="form-control" type="text" name="course_code" value="" placeholder="example: CS110" required>
+                                            <input class="form-control" type="text" name="course_code" value="<?php echo $r['course_code'] ;?>" placeholder="example: CS110" required>
                                         </div> 
                                         <div class="form-group">
                                             <label>Fakulti/Bahagian</label>
-                                            <input class="form-control" type="text" name="faculty" value="" placeholder="example: FSKM" required>
+                                            <input class="form-control" type="text" name="faculty" value="<?php echo $r['faculty'] ;?>" placeholder="example: FSKM" required>
                                         </div>                                           
                                         <div class="form-group">
                                             <label>Alamat/kolej</label>
-                                            <input class="form-control" type="text" name="address" value="" placeholder="" required>
+                                            <input class="form-control" type="text" name="address" value="<?php echo $r['address'] ;?>" placeholder="" required>
                                         </div>
                                         <div class="form-group">
                                             <label>No Telefon</label>
-                                            <input class="form-control" type="text" name="phone_no" value="" placeholder="" required>
+                                            <input class="form-control" type="text" name="phone_no" value="<?php echo $r['phone_no'] ;?>" placeholder="" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Tarikh Lahir</label>
-                                            <input class="form-control" type="text" name="birthdate" value="" placeholder="example: 1998-08-10" required>
+                                            <input class="form-control" type="text" name="birthdate" value="<?php echo $r['birthdate'] ;?>" placeholder="example: 1998-08-10" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Jantina</label>
-                                            <select name="gender" class="form-control" required>
-                                                    <option value="">-----</option>
+                                            <select name="gender" class="form-control" id="gender" type="text" required>
+                                                <?php 
+                                                    $sql5 = "SELECT gender FROM student where matric_no = '$matric_no'";
+                                                    $query5 = mysqli_query($dbconn, $sql5) or die("Error: " . mysqli_error($dbconn));
+                                                    $ro = mysqli_num_rows($query5); // Count the record of table to see it's not empty                   
+                                                        while($row = mysqli_fetch_assoc($query5)) {
+
+                                                            echo "<option>".$row['gender']."</option>";
+
+                                                        }
+                                                ?> 
                                                     <option value="Lelaki">Lelaki</option>
                                                     <option value="Perempuan">Perempuan</option>
                                             </select>
-                                        </div>  
-                                        <button class="btn btn-info" type="submit" name="submit">Register</button>
+                                        </div>
+                                        <br>
+                                        <p style="color:red"><b>*Please leave untouch to information that does not need to be updated</b></p><br>  
+                                        <button class="btn btn-info" type="submit" name="updatebutton">Update</button>
                                         </form> 
                                         <br>              
                                     
@@ -143,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                         </form>   
+                            
                     </div>
 
             <!-- ... Your content goes here ... -->

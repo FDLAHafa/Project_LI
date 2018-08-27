@@ -46,11 +46,11 @@
     <?php
     include("dbconn.php");
     session_start();
-        if(isset($_SESSION['staff_ID']))
+        if(isset($_SESSION['staff_ID'])) 
         {
 
-        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID']."";
-        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));
+        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID'].""; 
+        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));        
         $r = mysqli_fetch_assoc($query0);
 
         }
@@ -62,13 +62,13 @@
 </html>
     <!-- Page Content -->
     <div id="page-wrapper">
-                <div class="col-lg-12">
+                <div class="col-lg-14">
                     <br>
-                    <h1>Laporan Kad Pelajar Hilang</h1>
+                    <h1>Senarai Pelajar</h1>
                     <br>
                         <!-- /.panel-heading -->
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-14">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Laporan
@@ -78,70 +78,56 @@
                                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
                                             <tr>
-                                                <th>No Siri</th>
-                                                <th>Tarikh</th>
-                                                <th>Kad Matrik</th>
+                                                <th>No. Matriks</th>
                                                 <th>Nama</th>
+                                                <th>Kad Pengenalan</th>
                                                 <th>Kod Program</th>
                                                 <th>Fakulti</th>
                                                 <th>Alamat</th>
                                                 <th>No Telefon</th>
-                                                <th>Sah Sehingga</th>
-                                                <th>No Rujukan (PB05)</th>
-                                                <th style="color:green">Print</th>
+                                                <th>Jantina</th>
+                                                <th style="color:green">Update</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                         <?php
 
-                    $sql = "SELECT * FROM kad ORDER BY series_no";
+                    <?php 
+
+                    $sql = "SELECT * FROM student";
                     $query = mysqli_query($dbconn, $sql) or die("Error: " . mysqli_error($dbconn));
-                    $row = mysqli_num_rows($query); // Count the record of table to see it's not empty
+                    $row = mysqli_num_rows($query); // Count the record of table to see it's not empty                   
                     if($row != 0) {
                         while($ro = mysqli_fetch_assoc($query)){
-                          echo "<tr>";
-                          echo "<td>".$ro['series_no']."</td>";
-                          echo "<input type='text' style='display:none' name='series_no' value='".$ro['series_no']."'>";
-                          echo "<td>".$ro['currentdate']."</td>";
-                          echo "<input type='date' style='display:none' name='currentdate' value='".$ro['currentdate']."'>";
-                          echo "<td>".$ro['matric_no']."</td>";
-                          echo "<input type='text' style='display:none' name='matric_no' value='".$ro['matric_no']."'>";
-                          echo "<td>".$ro['name']."</td>";
-                          echo "<input type='text' style='display:none' name='name' value='".$ro['name']."'>";
-                          echo "<td>".$ro['prog_code']."</td>";
-                          echo "<input type='text' style='display:none' name='prog_code' value='".$ro['prog_code']."'>";
-                          echo "<td>".$ro['faculty']."</td>";
-                          echo "<input type='text' style='display:none' name='faculty' value='".$ro['faculty']."'>";
-                          echo "<td>".$ro['address']."</td>";
-                          echo "<input type='text' style='display:none' name='address' value='".$ro['address']."'>";
-                          echo "<td>".$ro['phone_no']."</td>";
-                          echo "<input type='text' style='display:none' name='phone_no' value='".$ro['phone_no']."'>";
-                          echo "<td>".$ro['validuntil']."</td>";
-                          echo "<input type='text' style='display:none' name='validuntil' value='".$ro['validuntil']."'>";
-                          echo "<td>".$ro['refer']."</td>";
-                          echo "<input type='text' style='display:none' name='refer' value='".$ro['refer']."'>";
-                          echo '<td><form method="POST"><button type="submit" name="matricPrint" value='.$ro['series_no'].' formaction="MatrikGantiPrint.php" class="btn btn-info">Print</button></form></td>';
-                          echo "</tr>";
-                              }
-                            } ?>
-
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.table-responsive -->
-
-            </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-</div>
-</div>
-</div>
-
-
-
+                        
+                                        echo "<tr>";
+                                        echo "<td>".$ro['matric_no']."</td>";
+                                        echo "<input type='text' style='display:none' name='matric_no' value='".$ro['matric_no']."'>";
+                                        echo "<td>".$ro['name']."</td>";
+                                        echo "<input type='text' style='display:none' name='name' value='".$ro['name']."'>";
+                                        echo "<td>".$ro['ic_number']."</td>";
+                                        echo "<input type='text' style='display:none' name='ic_number' value='".$ro['ic_number']."'>";
+                                        echo "<td>".$ro['course_code']."</td>";
+                                        echo "<input type='text' style='display:none' name='course_code' value='".$ro['course_code']."'>";
+                                        echo "<td>".$ro['faculty']."</td>";
+                                        echo "<input type='text' style='display:none' name='faculty' value='".$ro['faculty']."'>";
+                                        echo "<td>".$ro['address']."</td>";
+                                        echo "<input type='text' style='display:none' name='address' value='".$ro['address']."'>";
+                                        echo "<td>".$ro['phone_no']."</td>";
+                                        echo "<input type='text' style='display:none' name='phone_no' value='".$ro['phone_no']."'>";
+                                        echo "<td>".$ro['gender']."</td>";
+                                        echo "<input type='text' style='display:none' name='gender' value='".$ro['gender']."'>";
+                                        echo '<td><button type="submit" name="updatebutton" value='.$ro['matric_no'].' formaction="updStud.php" class="btn btn-warning">Update</button></td>';
+                                        echo "</tr>";
+                                            }
+                                            } ?>
+                                        </tbody>
+                                    </table> 
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    
 
 
 <!-- jQuery -->
