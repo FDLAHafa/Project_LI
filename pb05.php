@@ -49,6 +49,11 @@
       $lostPlace ='i';
       $lostReport ='j';
       $reportDate ='k';
+      $itemCount = 0;
+      foreach ()
+      {
+          $lostArr = array('<div class="flexItem">'.$itemCount.') '.$.'</div>');
+      }
       $lostArr = array();
       //<div class="flexItem">A) </div> <div class="flexItem">D) </div>
      ?>
