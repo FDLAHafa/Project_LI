@@ -1,5 +1,18 @@
 <html>
   <head>
+    <script>
+    function printdiv(printdivname)
+      {
+      var headstr = "<html><head><title>Summon Details</title></head><body>";
+      var footstr = "</body>";
+      var newstr = document.getElementById(printdivname).innerHTML;
+      var oldstr = document.body.innerHTML;
+      document.body.innerHTML = headstr+newstr+footstr;
+      window.print();
+      document.body.innerHTML = oldstr;
+      return false;
+      }
+    </script>
     <style>
     .gridcont {
       display: grid;
@@ -37,28 +50,30 @@
     </style>
 
     <?php
-      $i = 0;
-      $name = 'a';
-      $kp ='b';
-      $matric ='c';
-      $course ='d';
-      $faculty ='e';
-      $college ='f';
-      $lostDate ='g';
-      $lostTime ='h';
-      $lostPlace ='i';
-      $lostReport ='j';
-      $reportDate ='k';
-      $itemCount = 0;
-      foreach ()
-      {
-          $lostArr = array('<div class="flexItem">'.$itemCount.') '.$.'</div>');
-      }
-      $lostArr = array();
-      //<div class="flexItem">A) </div> <div class="flexItem">D) </div>
-     ?>
+    include("dbconn.php");
+    if (isset($_POST['printrfir']))
+    {
+      $sql0 = "SELECT * from complain WHERE series_no = ".$_POST['printrfir']."";
+      $sql1 = mysqli_query($dbconn,$sql0) or die ("Error: ".mysqli_error($dbconn));
+      $data = mysqli_fetch_assoc($sql1);
+      $name = $data['name'];
+      $kp = $data['ic_number'];
+      $matric = $data['matric_no'];
+      $course = $data['course_code'];
+      $faculty = $data['faculty'];
+      $college = $data['address'];
+      $lostDate = $data['missDate'];
+      $lostTime = $data['missTime'];
+      $lostPlace = $data['missPlace'];
+      $lostReport = $data['report'];
+      $lostItem = $data['missItem'];
+      $reportDate = date("d/m/Y");
+    }
+      ?>
   </head>
-  <body>
+  <body style="font-family:Calibri; font-size:14;">
+    <button id="print" onclick="printdiv('print_pb05');">Print Summon</button>
+    <button onclick="location.href = 'rfir.php'">Back</button>
     <div id="print_pb05">
       <div id="table_header">
         <table style = "background-color: rgb(234,241,221);border-collapse: collapse" width = "700" >
@@ -100,12 +115,8 @@
         1.  Saya nama yang tersebut di atas ingin membuat laporan iaitu <br>
             &emsp;saya telah kehilangan barang-barang yang berikut :<br>
             <div class="gridcont">
-              <div class="flexCont">
-                <?php
-                  foreach ($lostArr as $lostItem) {
-                    echo $lostItem;
-                  }
-                ?>
+              <div class="grid-item">
+                <?php echo $lostItem; ?>
               </div>
           </div>
           <p>

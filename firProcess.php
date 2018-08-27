@@ -5,7 +5,7 @@ if (isset($_POST['submit']))
 
   //FIR variables
   $name =   $_POST['name'];
-  $ic_number =     $_POST['ic_number'];
+  $ic_number = $_POST['ic_number'];
   $matric_no = $_POST['matric_no'];
   $course_code = $_POST['course_code'];
   $faculty = $_POST['faculty'];

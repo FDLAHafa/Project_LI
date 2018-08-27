@@ -68,6 +68,7 @@
 </head>
 <body style="font-family:Calibri; font-size:14;">
   <button id="print" onclick="printdiv('matric');">Print</button>
+  <button onclick="location.href = 'rkadpelajar.php'">Back</button>
   <div id="matric">
     <div class="flexCont">
       <div class="flexCol">

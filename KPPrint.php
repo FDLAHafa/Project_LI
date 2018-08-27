@@ -71,6 +71,7 @@
 </head>
 <body style="font-family:Calibri; font-size:14;">
   <button id="print" onclick="printdiv('summon');">Print Summon</button>
+  <button onclick="location.href = 'rsaman.php'">Back</button>
   <div class="flexCont" id="summon">
     <div class="flexCol">
       <div class="flexRow" style="align-items:center;justify-content:center;">

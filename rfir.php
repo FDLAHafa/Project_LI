@@ -46,11 +46,11 @@
     <?php
     include("dbconn.php");
     session_start();
-        if(isset($_SESSION['staff_ID'])) 
+        if(isset($_SESSION['staff_ID']))
         {
 
-        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID'].""; 
-        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));        
+        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID']."";
+        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));
         $r = mysqli_fetch_assoc($query0);
 
         }
@@ -96,14 +96,14 @@
                                         </thead>
                                         <tbody>
 
-                    <?php 
+                    <?php
 
                     $sql = "SELECT * FROM complain ORDER BY series_no";
                     $query = mysqli_query($dbconn, $sql) or die("Error: " . mysqli_error($dbconn));
-                    $row = mysqli_num_rows($query); // Count the record of table to see it's not empty                   
+                    $row = mysqli_num_rows($query); // Count the record of table to see it's not empty
                     if($row != 0) {
                         while($ro = mysqli_fetch_assoc($query)){
-                        
+
                                         echo "<tr>";
                                         echo "<td>".$ro['series_no']."</td>";
                                         echo "<input type='text' style='display:none' name='series_no' value='".$ro['series_no']."'>";
@@ -131,7 +131,7 @@
                                         echo "<input type='text' style='display:none' name='missItem' value='".$ro['missItem']."'>";
                                         echo "<td>".$ro['report']."</td>";
                                         echo "<input type='text' style='display:none' name='report' value='".$ro['report']."'>";
-                                        echo '<td><button type="submit" name="printrfir" value='.$ro['matric_no'].' formaction="printrfir.php" class="btn btn-info">Print</button></td>';
+                                        echo '<td><form method="POST"><button type="submit" name="printrfir" value='.$ro['series_no'].' formaction="pb05.php" class="btn btn-info">Print</button></form></td>';
                                         echo "</tr>";
 
                                             }
@@ -146,9 +146,9 @@
                     </div>
                 </div>
             </div>
-        
-            
-        
+
+
+
 
 
 <!-- jQuery -->
