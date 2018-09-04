@@ -101,27 +101,36 @@
       </div><p>
       <div class="whitespace">
         <div class="wsitem">
-        Nama                :<?php echo $name;?><br>
-        No. Kad Pengenalan  :<?php echo $kp;?><br>
-        No. KP UiTM         :<?php echo $matric;?><br>
-        Kursus/Jawatan      :<?php echo $course;?><br>
-        Fakulti/Bahagian    :<?php echo $faculty;?><br>
-        Alamat/Kolej        :<?php echo $college;?><br>
+        Nama                :<u><b><?php echo $name;?></b></u><br>
+        No. Kad Pengenalan  :<u><b><?php echo $kp;?></b></u><br>
+        No. KP UiTM         :<u><b><?php echo $matric;?></b></u><br>
+        Kursus/Jawatan      :<u><b><?php echo $course;?></b></u><br>
+        Fakulti/Bahagian    :<u><b><?php echo $faculty;?></b></u><br>
+        Alamat/Kolej        :<u><b><?php echo $college;?></b></u><br>
         <div class="gridcont">
-        <div class="grid-item">Tarikh Hilang       :<?php echo $lostDate;?></div>                     <div class="grid-item">Masa :<?php echo $lostTime;?></div><br>
+          <?php 
+                $time = $lostTime;
+                $newTime = date('h:i A', strtotime($time));
+
+                $date = $lostDate;
+                $newDate = date('d/m/Y', strtotime($date));
+          ?>
+        <div class="grid-item">Tarikh Hilang       :<u><b><?php echo $newDate;?></b></u></div>                     <div class="grid-item">Masa :<u><b><?php echo $newTime;?></b></u></div><br>
         </div>
-        Tempat Kehilangan   :<?php echo $lostPlace;?><p>
+        Tempat Kehilangan   :<u><b><?php echo $lostPlace;?></b></u><p>
 
         1.  Saya nama yang tersebut di atas ingin membuat laporan iaitu <br>
             &emsp;saya telah kehilangan barang-barang yang berikut :<br>
             <div class="gridcont">
               <div class="grid-item">
-                <?php echo $lostItem; ?>
+                <u><b><?php echo $lostItem; ?></b></u>
               </div>
-          </div>
+            </div>
           <p>
-        2.	Laporan ringkas bagaimana kehilangan berlaku.<p></div>
-            <div class="wsitem"><?php echo $lostReport;?></div>
+        2.	Laporan ringkas bagaimana kehilangan berlaku.<br>
+            <div class="wsitem"><u><b><?php echo $lostReport;?></b></u></div><br><br>
+
+
 <div class="wsitem">
 <pre class="main">
 Sekian.
@@ -139,7 +148,9 @@ Tandatangan Pengadu                             Tandatangan Penerima Aduan
 Bertarikh ...............................
 </pre>
 </div>
+</div>
       </div>
+
       <div class="wsitem">
         <table style = "border-collapse: collapse" width = "700" >
           <tr>
@@ -150,7 +161,7 @@ Bertarikh ...............................
               Pindaan :
             </td>
             <td>
-              Tarikh : <?php echo $reportDate;?>
+              Tarikh : <u><b><?php echo $reportDate;?></b></u>
             </td>
           </tr>
         </table>

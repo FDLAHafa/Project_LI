@@ -146,34 +146,7 @@
                                         </form> 
                                         <br>              
                                     
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <button class="btn btn-info" data-toggle="modal" data-target="#myModal" type="submit" name="submit">Register</button>
-                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                    <h4 class="modal-title" id="myModalLabel">Save Student?</h4>
-                                                </div>
-                                            <div class="modal-body">
-                                               Please make sure that every information has been insert correctly.
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-info" name="submit" >Save changes</button>
-                                            </div>
-                                            </div>
-                                        <!-- /.modal-content -->
-                                        </div>
-                                    <!-- /.modal-dialog -->
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                             
                     </div>
 

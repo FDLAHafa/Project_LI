@@ -69,7 +69,7 @@
                         <!-- /.panel-heading -->
                 <div class="row">
                     <div class="col-lg-14">
-                        <div class="panel panel-default">
+                        <div class="panel panel-success">
                             <div class="panel-heading">
                                 Laporan
                             </div>
@@ -121,9 +121,13 @@
                                         echo "<input type='text' style='display:none' name='address' value='".$ro['address']."'>";
                                         echo "<td>".$ro['phone_no']."</td>";
                                         echo "<input type='text' style='display:none' name='phone_no' value='".$ro['phone_no']."'>";
-                                        echo "<td>".$ro['missDate']."</td>";
+                                        $date = $ro['missDate'];
+                                        $newDate = date('d/m/Y', strtotime($date));
+                                        echo "<td>".$newDate."</td>";
                                         echo "<input type='date' style='display:none' name='missDate' value='".$ro['missDate']."'>";
-                                        echo "<td>".$ro['missTime']."</td>";
+                                        $time = $ro['missTime'];
+                                        $newTime = date('h:i A', strtotime($time));
+                                        echo "<td>".$newTime."</td>";
                                         echo "<input type='text' style='display:none' name='missTime' value='".$ro['missTime']."'>";
                                         echo "<td>".$ro['missPlace']."</td>";
                                         echo "<input type='text' style='display:none' name='missPlace' value='".$ro['missPlace']."'>";

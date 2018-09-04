@@ -56,6 +56,7 @@
     $sql0 = "SELECT * from kp WHERE series_no = ".$_POST['print']."";
     $sql1 = mysqli_query($dbconn,$sql0) or die ("Error: ".mysqli_error($dbconn));
     $data = mysqli_fetch_assoc($sql1);
+    $series_no = $data["series_no"];
     $name = $data["name"];
     $matric = $data["matric_no"];
     $ic = $data["mykad_no"];
@@ -65,11 +66,20 @@
     $violation = $data["summons"];
     $summon = $data["rm"];
     $appealDate = $data["paybefore"];
-    $serial = $date['series_no'];
   }
   else {echo "fish";  }
   ?>
 </head>
+<?php 
+                $time0 = $time;
+                $newTime0 = date('h:i A', strtotime($time0));
+
+                $date0 = $date;
+                $newDate0 = date('d/m/Y', strtotime($date0));
+
+                $date1 = $appealDate;
+                $newDate1 = date('d/m/Y', strtotime($date1));
+?>
 <body style="font-family:Calibri; font-size:14;">
   <button id="print" onclick="printdiv('summon');">Print Summon</button>
   <button onclick="location.href = 'rsaman.php'">Back</button>
@@ -77,10 +87,10 @@
     <div class="flexCol">
       <div class="flexRow" style="align-items:center;justify-content:center;">
         <div class="flexItemBase">
-          <img src="images\LogoUiTM_(color).jpg" style="width:250px;height:100px">
+          <img src="images\LogoUiTM_(color).jpg" style="width:150px;height:50px">
         </div>
       </div>
-    </div>
+    
     <div class="flexCol">
       <div class="flexRow">
         <div class="flexItem">
@@ -88,41 +98,42 @@
         </div>
       <div class="flexRow">
         <div class="flexItem">
-          No. Siri : <?php echo $serial; ?>
+          &nbsp;&nbsp;No. C<u><b><?php echo $series_no; ?></b></u>
+          
         </div>
       </div>
     </div>
     <div class="flexCol">
       <div class="flexItem" >
-        &nbsp;&nbsp;Nama: <?php echo $name; ?>
+        &nbsp;&nbsp;Nama: <u><b><?php echo $name; ?></b></u>
       </div>
       <div class="flexCol">
         <div class="flexRow">
           <div class="flexItem">
-            KP: <?php echo $ic; ?>
+            KP: <u><b><?php echo $ic; ?></b></u>
           </div>
           <div class="flexItem">
-            Matrik: <?php echo $matric;?>
+            Matrik: <u><b><?php echo $matric;?></b></u>
           </div>
           <div class="flexItem">
-            Program: <?php echo $program;?>
+            Program: <u><b><?php echo $program;?></b></u>
           </div>
         </div>
       </div>
       <div class="flexCol">
         <div class="flexRow">
           <div class="flexItem">
-            Tarikh: <?php echo $date;?>
+            Tarikh: <u><b><?php echo $newDate0;?></b></u>
           </div>
           <div class="flexItem">
-            Masa: <?php echo $time; ?>
+            Masa: <u><b><?php echo $newTime0; ?></b></u>
           </div>
         </div>
       </div>
       <div class="flexCol">
         <div class="flexRow">
           <div class="flexItem">Kesalahan</div>
-          <div class="flexItem"><?php echo $violation;?></div>
+          <div class="flexItem"><u><b><?php echo $violation;?></div></b></u>
         </div>
       </div>
       <div class="flexCol">
@@ -149,8 +160,8 @@
       <div class="flexCol">
         <div class="flexRow">
           <div class="flexItem">
-            <label>Dibawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan ini boleh dikenakan kompaun tidak melebihi RM50.00 bagi setiap kesalahan. Anda dikehendaki membayar kompaun sebanyak</label>
-            <?php echo $summon;?> sebelum <?php echo $appealDate;?> <label>. Jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
+            <label>Dibawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan ini boleh dikenakan kompaun tidak melebihi RM50.00 bagi setiap kesalahan. Anda dikehendaki membayar kompaun sebanyak </label>
+            <u><b>RM<?php echo $summon;?></b></u> sebelum <u><b><?php echo $newDate1;?></b></u> <label>. Jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
           </div>
         </div>
       </div>
@@ -168,6 +179,13 @@
       </div>
     </div>
   </div>
+
+</div>
+</div>
+</div>
+
+
+</div>
 
 </body>
 </html>

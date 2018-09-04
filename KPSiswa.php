@@ -44,6 +44,10 @@
         $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID'].""; 
         $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));        
         $r = mysqli_fetch_assoc($query0);
+
+        $sql1 = "SELECT * FROM student WHERE matric_no = ".$_SESSION['matric_no']."";
+        $query1 = mysqli_query($dbconn, $sql1) or die ("Error: ".mysqli_error($dbconn));
+        $r1 = mysqli_fetch_assoc($query1);
         }
     ?>
 
@@ -57,33 +61,38 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Kesalahan Pelajar(Siswa)</h1> 
+                    <h1 class="page-header">Saman Sahsiah Rupa Diri (Siswa)</h1> 
                 </div>
             </div>
+            <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              Student Found . <a href="KPCheck.php" class="alert-link">Click Here</a> to go back.
+            </div>
+                                    <div class="col-lg-6">
                                         <form role="form" method="post" action="KPSiswa1.php">
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">Nama: </span>
-                                                <input type="text" name="name" class="form-control" required>
+                                            <div class="form-group has-success">
+                                                <label class="control-label" for="inputSuccess">Nama Pelajar</label>
+                                                <input type="text" name="name" id="inputSuccess" class="form-control" value="<?php echo $r1['name'] ;?>">
                                             </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">No.Kad Pelajar: </span>
-                                                <input type="text" name="matric_no" class="form-control" required>
+                                            <div class="form-group has-success">
+                                                <label class="control-label" for="inputSuccess">No Pelajar UiTM</label>
+                                                <input type="text" name="matric_no" id="inputSuccess" class="form-control" value="<?php echo $r1['matric_no'] ;?>">
                                             </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">No.Kad Pengenalan: </span>
-                                                <input type="text" name="mykad_no" class="form-control" placeholder='without " - " ' required>
+                                            <div class="form-group has-success">
+                                                <label class="control-label" for="inputSuccess">No. Kad Pengenalan</label>
+                                                <input type="text" name="ic_number" id="inputSuccess" class="form-control" value="<?php echo $r1['ic_number'] ;?>">
                                             </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">Kod Program: </span>
-                                                <input type="text" name="prog_code" class="form-control" placeholder="example: CS110" required>
+                                            <div class="form-group has-success">
+                                                <label class="control-label" for="inputSuccess">Kursus</label>
+                                                <input type="text" name="course_code" id="inputSuccess" class="form-control" value="<?php echo $r1['course_code'] ;?>">
                                             </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">Tarikh: </span>
-                                                <input type="date" name="summon_date" class="form-control" required>
+                                            <div class="form-group has-success">
+                                                <label class="control-label" for="inputSuccess">Tarikh</label>
+                                                <input type="date" name="summon_date" id="inputSuccess" class="form-control" required>
                                             </div>
                                             <div class="form-group input-group">
                                                 <span class="input-group-addon">Masa: </span>
-                                                <input type="text" name="summon_time" class="form-control" placeholder="example: 10.00am" required>
+                                                <input type="time" name="summon_time" class="form-control" required>
                                             </div>
                                             <div class="form-group input-group">
                                                 <span class="input-group-addon">Tempat: </span>
@@ -108,85 +117,85 @@
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Tidak dimasukkan kedalam seluar (baju jenis masuk ke dalam)">1.3 Tidak dimasukkan kedalam seluar (baju jenis masuk ke dalam)
+                                                        <input type="checkbox" name="summons[]" value="Baju- Tidak dimasukkan kedalam seluar (baju jenis masuk ke dalam)">1.3 Tidak dimasukkan kedalam seluar (baju jenis masuk ke dalam)
                                                     </label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Tidak berlengan">1.4 Tidak berlengan
+                                                        <input type="checkbox" name="summons[]" value="Baju- Tidak berlengan">1.4 Tidak berlengan
                                                     </label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Mempunyai tulisan, perkataan atau gambar liar/lucah">1.5 Mempunyai tulisan, perkataan atau gambar liar/lucah
+                                                        <input type="checkbox" name="summons[]" value="Baju- Mempunyai tulisan, perkataan atau gambar liar/lucah">1.5 Mempunyai tulisan, perkataan atau gambar liar/lucah
                                                     </label>
                                                 </div>
                                                 <p class="form-control-static">2. Seluar</p>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Memakai seluar pendek">2.1 Memakai seluar pendek
+                                                        <input type="checkbox" name="summons[]" value="Seluar- Memakai seluar pendek">2.1 Memakai seluar pendek
                                                     </label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Ketat/Koyak/Lusuh/Jarang">2.2 Ketat/Koyak/Lusuh/Jarang
+                                                        <input type="checkbox" name="summons[]" value="Seluar- Ketat/Koyak/Lusuh/Jarang">2.2 Ketat/Koyak/Lusuh/Jarang
                                                     </label>
                                                 </div>
                                                 <p class="form-control-static">3. Kasut</p>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Memakai selipar">3.1 Memakai selipar
+                                                        <input type="checkbox" name="summons[]" value="Kasut- Memakai selipar">3.1 Memakai selipar
                                                     </label>
                                                 </div>
                                                 <p class="form-control-static">4. Rambut</p>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Panjang/Tidak kemas">4.1 Panjang/Tidak kemas
+                                                        <input type="checkbox" name="summons[]" value="Rambut- Panjang/Tidak kemas">4.1 Panjang/Tidak kemas
                                                     </label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Mewarnakan rambut">4.2 Mewarnakan rambut
+                                                        <input type="checkbox" name="summons[]" value="Rambut- Mewarnakan rambut">4.2 Mewarnakan rambut
                                                     </label>
                                                 </div>
                                                 <p class="form-control-static">5. Pengunaan Perpustakaan</p>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Membuat Bising">5.1 Membuat Bising
+                                                        <input type="checkbox" name="summons[]" value="Pengunaan Perpustakaan- Membuat Bising">5.1 Membuat Bising
                                                     </label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Ingkar arahan Pegawai Perpusatkaan">5.2 Ingkar arahan Pegawai Perpusatkaan
+                                                        <input type="checkbox" name="summons[]" value="Pengunaan Perpustakaan- Ingkar arahan Pegawai Perpusatkaan">5.2 Ingkar arahan Pegawai Perpusatkaan
                                                     </label>
                                                 </div>
                                                 <p class="form-control-static">6. Kolej Kediaman</p>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Membuat Bising">6.1 Membuat Bising
+                                                        <input type="checkbox" name="summons[]" value="Kolej Kediaman- Membuat Bising">6.1 Membuat Bising
                                                     </label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Bilik Kotor/Tidak kemas">6.2 Bilik Kotor/Tidak kemas
+                                                        <input type="checkbox" name="summons[]" value="Kolej Kediaman- Bilik Kotor/Tidak kemas">6.2 Bilik Kotor/Tidak kemas
                                                     </label>
                                                 </div>
                                                 <p class="form-control-static">7. Kad Pelajar</p>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Tidak membawa/gantung/pamer">7.1 Tidak membawa/gantung/pamer
+                                                        <input type="checkbox" name="summons[]" value="Kad Pelajar- Tidak membawa/gantung/pamer">7.1 Tidak membawa/gantung/pamer
                                                     </label>
                                                 </div>
                                                 <p class="form-control-static">8. Perhiasan Diri</p>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Memakai anting-anting/rantai/gelang/pamer">8.1 Memakai anting-anting/rantai/gelang/pamer
+                                                        <input type="checkbox" name="summons[]" value="Perhiasan Diri- Memakai anting-anting/rantai/gelang/pamer">8.1 Memakai anting-anting/rantai/gelang/pamer
                                                     </label>
                                                 </div>
                                                 <p class="form-control-static">9. Tempat Tinggal/Tidur Dalam Kampus</p>
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="summons[]" value="Tidur di tempat yang tidak dibenarkan">9.1 Tidur di tempat yang tidak dibenarkan
+                                                        <input type="checkbox" name="summons[]" value="Tempat Tinggal/Tidur Dalam Kampus- Tidur di tempat yang tidak dibenarkan">9.1 Tidur di tempat yang tidak dibenarkan
                                                     </label>
                                                 </div>
                                                 <p class="form-control-static">10. Lain Lain</p>
@@ -208,14 +217,13 @@
                                                 <label>.................................................</label>
                                                 <br><label>Tandatangan Pelajar</label>
                                                 <br><br><label>Dibawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan ini boleh dikenakan kompaun tidak melebihi RM50.00 bagi setiap kesalahan. Anda dikehendaki membayar kompaun sebanyak</label>
-                                                <div class="form-group input-group">
-                                                    <span class="input-group-addon">RM </span>
-                                                    <input type="text" name="rm" class="col-lg-1" placeholder="eg: 10.00" required>
+                                                <div class="form-group has-success">
+                                                    <label class="control-label" for="inputSuccess">RM</label>
+                                                    <input type="text" name="rm" id="inputSuccess" class="form-control" placeholder="Example: 10.00" required>
                                                 </div>
-                                               
-                                                <div class="form-group input-group">
-                                                    <span class="input-group-addon">sebelum </span>
-                                                    <input type="date" name="paybefore" required>
+                                                <div class="form-group has-success">
+                                                    <label class="control-label" for="inputSuccess">sebelum</label>
+                                                    <input type="date" name="paybefore" id="inputSuccess" class="form-control" required>
                                                 </div>
                                                 <label>jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
                                                 <br><br><br><br>
@@ -231,14 +239,8 @@
                                             <br><br><br><br>
                                         </form>
                                     </div>
-
-            <!-- ... Your content goes here ... -->
-            
-
         </div>
     </div>
-
-</div>
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>

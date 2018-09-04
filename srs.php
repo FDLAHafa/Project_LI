@@ -38,11 +38,11 @@
     <?php
     include("dbconn.php");
     session_start();
-        if(isset($_SESSION['staff_ID']))
+        if(isset($_SESSION['staff_ID'])) 
         {
 
-        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID']."";
-        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));
+        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID'].""; 
+        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));        
         $r = mysqli_fetch_assoc($query0);
         }
     ?>
@@ -62,7 +62,7 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             Daftar Pelajar
                         </div>
@@ -74,6 +74,7 @@
                                         <div class="form-group">
                                             <label>No Matriks</label>
                                             <input class="form-control" type="text" name="matric_no" value="" placeholder="" required>
+                                            <p style="color:red"><b>*Reminder: Make sure the value entered is correct before continue!</b></p>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama</label>
@@ -86,11 +87,11 @@
                                         <div class="form-group">
                                             <label>Kursus/Jawatan</label>
                                             <input class="form-control" type="text" name="course_code" value="" placeholder="example: CS110" required>
-                                        </div>
+                                        </div> 
                                         <div class="form-group">
                                             <label>Fakulti/Bahagian</label>
                                             <input class="form-control" type="text" name="faculty" value="" placeholder="example: FSKM" required>
-                                        </div>
+                                        </div>                                           
                                         <div class="form-group">
                                             <label>Alamat/kolej</label>
                                             <input class="form-control" type="text" name="address" value="" placeholder="" required>
@@ -100,25 +101,23 @@
                                             <input class="form-control" type="text" name="phone_no" value="" placeholder="" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Tarikh Lahir</label>
-                                            <input class="form-control" type="text" name="birthdate" value="" placeholder="example: 01-01-2000" required>
-                                        </div>
-                                        <div class="form-group">
                                             <label>Jantina</label>
                                             <select name="gender" class="form-control" required>
                                                     <option value="">-----</option>
                                                     <option value="Lelaki">Lelaki</option>
                                                     <option value="Perempuan">Perempuan</option>
                                             </select>
-                                        </div>
+                                        </div>  
                                         <button class="btn btn-info" type="submit" name="submit">Register</button>
-                                        </form>
-                                        <br>
-                         </form>
+                                        </form> 
+                                        <br>              
+                                    
+                
+                         </form>   
                     </div>
 
             <!-- ... Your content goes here ... -->
-
+            
 
         </div>
     </div>

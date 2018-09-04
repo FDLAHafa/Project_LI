@@ -69,7 +69,7 @@
                         <!-- /.panel-heading -->
                 <div class="row">
                     <div class="col-lg-14">
-                        <div class="panel panel-default">
+                        <div class="panel panel-success">
                             <div class="panel-heading">
                                 Laporan
                             </div>
@@ -116,9 +116,13 @@
                                         echo "<input type='text' style='display:none' name='mykad_no' value='".$ro['mykad_no']."'>";
                                         echo "<td>".$ro['prog_code']."</td>";
                                         echo "<input type='text' style='display:none' name='prog_code' value='".$ro['prog_code']."'>";
-                                        echo "<td>".$ro['summon_date']."</td>";
+                                        $date = $ro['summon_date'];
+                                        $newDate = date('d/m/Y', strtotime($date));
+                                        echo "<td>".$newDate."</td>";
                                         echo "<input type='date' style='display:none' name='summon_date' value='".$ro['summon_date']."'>";
-                                        echo "<td>".$ro['summon_time']."</td>";
+                                        $time = $ro['summon_time'];
+                                        $newTime = date('h:i A', strtotime($time));
+                                        echo "<td>".$newTime."</td>";
                                         echo "<input type='text' style='display:none' name='summon_time' value='".$ro['summon_time']."'>";
                                         echo "<td>".$ro['summon_place']."</td>";
                                         echo "<input type='text' style='display:none' name='summon_place' value='".$ro['summon_place']."'>";
@@ -126,7 +130,9 @@
                                         echo "<input type='text' style='display:none' name='summons' value='".$ro['summons']."'>";
                                         echo "<td>".$ro['rm']."</td>";
                                         echo "<input type='text' style='display:none' name='rm' value='".$ro['rm']."'>";
-                                        echo "<td>".$ro['paybefore']."</td>";
+                                        $date2 = $ro['paybefore'];
+                                        $newDate2 = date('d/m/Y', strtotime($date2));
+                                        echo "<td>".$newDate2."</td>";
                                         echo "<input type='date' style='display:none' name='paybefore' value='".$ro['paybefore']."'>";
                                         echo '<td><form method = "POST"><button type="submit" name="print" value='.$ro['series_no'].' formaction="KPPrint.php" class="btn btn-info">Print</button></form></td>';
                                         echo "</tr>";

@@ -45,7 +45,7 @@
         $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));        
         $r = mysqli_fetch_assoc($query0);
 
-        $sql1 = "SELECT * FROM complain WHERE matric_no = ".$_SESSION['matric_no']."";
+        $sql1 = "SELECT * FROM complain WHERE series_no = ".$_SESSION['series_no']."";
         $query1 = mysqli_query($dbconn, $sql1) or die ("Error: ".mysqli_error($dbconn));
         $r1 = mysqli_fetch_assoc($query1);
         }
