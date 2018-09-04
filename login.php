@@ -7,7 +7,7 @@ include("dbconn.php");
 if(isset($_POST['login']))
 {
 				$staff_ID = $_POST['staff_ID'];
-				$pass_word = $_POST['pass_word'];				
+				$pass_word = $_POST['pass_word'];
 
 				$sql = "SELECT * FROM staff WHERE staff_ID = '$staff_ID' AND pass_word = '$pass_word'";
 
@@ -15,15 +15,17 @@ if(isset($_POST['login']))
 
 				$row = mysqli_num_rows($query);
 
-				if($row == 0) 
+				if($row == 0)
 				{?>
-					
-					<div> 
-						Data not Exist!!
-						<a href="index.html">Go Back</a>
+
+					<div>
+						<script type='text/javascript'>
+				          alert('User Does Not Exist');
+				          setTimeout(window.location='index.html');
+				          </script>
                     </div><?php
 				}
-				else 
+				else
 				{
 					$r = mysqli_fetch_assoc($query);
 					$_SESSION['staff_ID'] = $r['staff_ID'];
@@ -35,6 +37,6 @@ if(isset($_POST['login']))
 
 			mysqli_close($dbconn);
 ?>
-					
+
 	</body>
 </html>

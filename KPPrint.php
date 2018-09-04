@@ -65,6 +65,7 @@
     $violation = $data["summons"];
     $summon = $data["rm"];
     $appealDate = $data["paybefore"];
+    $serial = $date['series_no'];
   }
   else {echo "fish";  }
   ?>
@@ -87,7 +88,7 @@
         </div>
       <div class="flexRow">
         <div class="flexItem">
-          No.c8282882 (temp)
+          No. Siri : <?php echo $serial; ?>
         </div>
       </div>
     </div>

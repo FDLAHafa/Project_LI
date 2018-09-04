@@ -40,17 +40,7 @@
         <!--PHP segement for tables and charts -->
         <?php
             include ("dbconn.php");
-            // Sets the top option to be the current year. (IE. the option that is chosen by default).
-            $currently_selected = date('Y');
-            // Year to start available options at
-            $earliest_year = 2016;
-            // Set your latest year you want in the range, in this case we use PHP to just set it to the current year.
-            $latest_year = date('Y');
-            $currentYear = $latest_year;
-            if (!isset($_POST['year']))
-            {
-              $currentYear = $_POST['yearSend'];
-            }
+            $currentYear = date("Y");
             //php code for violations
             $janCount=$febCount=$marCount=$aprCount=$mayCount=$junCount=$julCount=$augCount=$sepCount=$octCount=$novCount=$decCount=0;
             for ($i = 1;$i<=12;$i++)
@@ -114,7 +104,6 @@
 
             $count = '';
             $iterVio = 0;
-            //$countVio = "";
             foreach($countArr as $monthCount)
             {
                 $month = intToMonth($iterVio);
@@ -127,7 +116,7 @@
 
             function intToFac ($int)
             {
-                $facArr = array('FSKM','FSPPP','Business');
+                $facArr = array('FSKM (Sains Komputer)','FSPPP (Pengajian Polisi)','FBP (Pengajian Busines)');
                 return $facArr[$int];
             }
 
@@ -141,7 +130,12 @@
             if ($fspppTest == null) {$fspppCount = 0;}
             else {$fspppCount = mysqli_num_rows($fspppTest);}
 
-            $facCountArr = array($fskmCount,$fspppCount);
+            $fbp = "SELECT * from kad where faculty LIKE '%FBP%'and year(currentdate) = '".$currentYear."'";
+            $fbpTest = mysqli_query($dbconn,$fbp);
+            if ($fbpTest == null) {$fbpCount = 0;}
+            else {$fbpCount = mysqli_num_rows($fbpTest);}
+
+            $facCountArr = array($fskmCount,$fspppCount,$fbpCount);
 
             $iterFac = 0;
             $countFac = '';
@@ -176,28 +170,14 @@
                 <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Statistik</h1>
+                        <h1 class="page-header">Dashboard</h1>
                     </div>
-                    <div>
-                      Tahun :
-                      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="year">
-                      <?php
-                      print '<select>';
-                      // Loops over each int[year] from current year, back to the $earliest_year [1950]
-                      foreach ( range( $latest_year, $earliest_year ) as $i ) {
-                      // Prints the option with the next year in range.
-                      print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
-                      }
-                      print '</select>'; ?>
-                      <input type="submit" name="year" value="<?php $currently_selected ?>">
-                    </form>
-                  </div>
                 </div>
                 <!-- ... Your content goes here ... -->
                 <div class="row">
                     <!-- row for dash items -->
                     <div class="col-lg-6">
-                        <div class="panel panel-success">
+                        <div class="panel panel-default">
                             <div class="panel-heading">Jumlah Saman Tahun <?php echo $currentYear;?></div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -221,7 +201,7 @@
                     <!-- /.panel -->
                     </div>
                     <div class="col-lg-6">
-                        <div class="panel panel-info">
+                        <div class="panel panel-default">
                             <div class="panel-heading">Jumlah Kehilangan Kad Matrik <?php echo $currentYear; ?></div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">

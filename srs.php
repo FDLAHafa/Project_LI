@@ -38,11 +38,11 @@
     <?php
     include("dbconn.php");
     session_start();
-        if(isset($_SESSION['staff_ID'])) 
+        if(isset($_SESSION['staff_ID']))
         {
 
-        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID'].""; 
-        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));        
+        $sql0 = "SELECT * FROM staff WHERE staff_ID = ".$_SESSION['staff_ID']."";
+        $query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));
         $r = mysqli_fetch_assoc($query0);
         }
     ?>
@@ -86,11 +86,11 @@
                                         <div class="form-group">
                                             <label>Kursus/Jawatan</label>
                                             <input class="form-control" type="text" name="course_code" value="" placeholder="example: CS110" required>
-                                        </div> 
+                                        </div>
                                         <div class="form-group">
                                             <label>Fakulti/Bahagian</label>
                                             <input class="form-control" type="text" name="faculty" value="" placeholder="example: FSKM" required>
-                                        </div>                                           
+                                        </div>
                                         <div class="form-group">
                                             <label>Alamat/kolej</label>
                                             <input class="form-control" type="text" name="address" value="" placeholder="" required>
@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Tarikh Lahir</label>
-                                            <input class="form-control" type="text" name="birthdate" value="" placeholder="example: 1998-08-10" required>
+                                            <input class="form-control" type="text" name="birthdate" value="" placeholder="example: 01-01-2000" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Jantina</label>
@@ -110,44 +110,15 @@
                                                     <option value="Lelaki">Lelaki</option>
                                                     <option value="Perempuan">Perempuan</option>
                                             </select>
-                                        </div>  
-                                        <button class="btn btn-info" type="submit" name="submit">Register</button>
-                                        </form> 
-                                        <br>              
-                                    
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <button class="btn btn-info" data-toggle="modal" data-target="#myModal" type="submit" name="submit">Register</button>
-                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                    <h4 class="modal-title" id="myModalLabel">Save Student?</h4>
-                                                </div>
-                                            <div class="modal-body">
-                                               Please make sure that every information has been insert correctly.
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-info" name="submit" >Save changes</button>
-                                            </div>
-                                            </div>
-                                        <!-- /.modal-content -->
                                         </div>
-                                    <!-- /.modal-dialog -->
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                         </form>   
+                                        <button class="btn btn-info" type="submit" name="submit">Register</button>
+                                        </form>
+                                        <br>
+                         </form>
                     </div>
 
             <!-- ... Your content goes here ... -->
-            
+
 
         </div>
     </div>
