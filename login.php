@@ -16,12 +16,11 @@ if(isset($_POST['login']))
 				$row = mysqli_num_rows($query);
 
 				if($row == 0) 
-				{?>
-					
-					<div> 
-						Data not Exist!!
-						<a href="index.html">Go Back</a>
-                    </div><?php
+				{
+					echo "<script type='text/javascript'>
+          				alert('Wrong User ID/Password entered!');
+          				setTimeout(window.location='index.html',2000);
+          				</script>";
 				}
 				else 
 				{

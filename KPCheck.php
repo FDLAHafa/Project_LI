@@ -57,15 +57,15 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Gantian Kad Pelajar</h1> 
+                    <h1 class="page-header">Saman SRD</h1> 
                 </div>
             </div>
                                     <div class="col-lg-6">
-                                        <form role="form" method="post" action="kadpelajar1.php">
+                                        <form role="form" method="post" action="KPCheck1.php">
                                             <div>
                                                 <div class="form-group input-group">
-                                                    <span class="input-group-addon">No. Rujukan PB05</span>
-                                                    <input type="text" name="series_no" class="form-control" required>
+                                                    <span class="input-group-addon">No Kad Pelajar</span>
+                                                    <input type="text" name="matric_no" class="form-control" required>
                                                 </div>
                                                 <button type="submit" name="check" class="btn btn-success">Check</button>
                                             </div>

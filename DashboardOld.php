@@ -40,8 +40,7 @@
         <!--PHP segement for tables and charts -->
         <?php
             include ("dbconn.php");
-            $currentYear = date('Y');
-
+            $currentYear = date("Y");
             //php code for violations
             $janCount=$febCount=$marCount=$aprCount=$mayCount=$junCount=$julCount=$augCount=$sepCount=$octCount=$novCount=$decCount=0;
             for ($i = 1;$i<=12;$i++)
@@ -105,7 +104,6 @@
 
             $count = '';
             $iterVio = 0;
-            //$countVio = "";
             foreach($countArr as $monthCount)
             {
                 $month = intToMonth($iterVio);
@@ -118,7 +116,7 @@
 
             function intToFac ($int)
             {
-                $facArr = array('FSKM','FSPPP','Business');
+                $facArr = array('FSKM (Sains Komputer)','FSPPP (Pengajian Polisi)','FBP (Pengajian Busines)');
                 return $facArr[$int];
             }
 
@@ -132,7 +130,12 @@
             if ($fspppTest == null) {$fspppCount = 0;}
             else {$fspppCount = mysqli_num_rows($fspppTest);}
 
-            $facCountArr = array($fskmCount,$fspppCount);
+            $fbp = "SELECT * from kad where faculty LIKE '%FBP%'and year(currentdate) = '".$currentYear."'";
+            $fbpTest = mysqli_query($dbconn,$fbp);
+            if ($fbpTest == null) {$fbpCount = 0;}
+            else {$fbpCount = mysqli_num_rows($fbpTest);}
+
+            $facCountArr = array($fskmCount,$fspppCount,$fbpCount);
 
             $iterFac = 0;
             $countFac = '';
@@ -167,14 +170,14 @@
                 <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Statistik</h1>
+                        <h1 class="page-header">Dashboard</h1>
                     </div>
                 </div>
                 <!-- ... Your content goes here ... -->
                 <div class="row">
                     <!-- row for dash items -->
                     <div class="col-lg-6">
-                        <div class="panel panel-success">
+                        <div class="panel panel-default">
                             <div class="panel-heading">Jumlah Saman Tahun <?php echo $currentYear;?></div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -198,7 +201,7 @@
                     <!-- /.panel -->
                     </div>
                     <div class="col-lg-6">
-                        <div class="panel panel-info">
+                        <div class="panel panel-default">
                             <div class="panel-heading">Jumlah Kehilangan Kad Matrik <?php echo $currentYear; ?></div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">

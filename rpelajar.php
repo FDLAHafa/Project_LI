@@ -61,6 +61,7 @@
 </body>
 </html>
     <!-- Page Content -->
+    <form method="post">
     <div id="page-wrapper">
                 <div class="col-lg-14">
                     <br>
@@ -69,7 +70,7 @@
                         <!-- /.panel-heading -->
                 <div class="row">
                     <div class="col-lg-14">
-                        <div class="panel panel-default">
+                        <div class="panel panel-success">
                             <div class="panel-heading">
                                 Laporan
                             </div>
@@ -127,6 +128,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </form>
                     
 
 

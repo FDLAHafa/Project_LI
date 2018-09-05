@@ -8,8 +8,8 @@ if(isset($_POST['submit']))
 {	
 	$name = $_POST['name'];	
 	$matric_no = $_POST['matric_no'];
-	$mykad_no = $_POST['mykad_no'];
-	$prog_code = $_POST['prog_code'];
+	$mykad_no = $_POST['ic_number'];
+	$prog_code = $_POST['course_code'];
 	$summon_date = $_POST['summon_date'];
 	$summon_time = $_POST['summon_time'];			
 	$summon_place = $_POST['summon_place'];	
@@ -20,7 +20,7 @@ if(isset($_POST['submit']))
  	$chkNew = "";			
  	foreach($chkbox as $chkNew1) 
  	{ 
- 		$chkNew .= $chkNew1 . ", "; 
+ 		$chkNew .= $chkNew1 . "."; 
  	} 
 
 	$sql0 = "INSERT INTO kp(gender, name, matric_no, mykad_no, prog_code, summon_date, summon_time, summon_place, summons, rm, paybefore) VALUES ('Siswa', '".$name."', '".$matric_no."', '".$mykad_no."', '".$prog_code."', '".$summon_date."', '".$summon_time."', '".$summon_place."', '".$chkNew."', '".$rm."', '".$paybefore."')";
@@ -30,13 +30,17 @@ if(isset($_POST['submit']))
 
 	if (mysqli_query($dbconn, $sql0)) 
 	{
-		echo "successfull added";
-		//header("Location: AdminInformation.php");
-		echo '<a href="KPSiswa.php"> Go Back</a>';
+		echo "<script type='text/javascript'>
+          alert('Successful');
+          setTimeout(window.location='KPCheck.php',2000);
+          </script>";
 	} 
 
 	else {
-
+		echo "<script type='text/javascript'>
+          	alert('An Error Occur');
+          	setTimeout(window.location='KPCheck.php',2000);
+          	</script>";
 		echo "Error: " . mysqli_error($dbconn);
 
 	}

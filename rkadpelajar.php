@@ -69,7 +69,7 @@
                         <!-- /.panel-heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-success">
                             <div class="panel-heading">
                                 Laporan
                             </div>
@@ -102,7 +102,9 @@
                           echo "<tr>";
                           echo "<td>".$ro['series_no']."</td>";
                           echo "<input type='text' style='display:none' name='series_no' value='".$ro['series_no']."'>";
-                          echo "<td>".$ro['currentdate']."</td>";
+                          $date = $ro['currentdate'];
+                          $newDate = date('d/m/Y', strtotime($date));
+                          echo "<td>".$newDate."</td>";
                           echo "<input type='date' style='display:none' name='currentdate' value='".$ro['currentdate']."'>";
                           echo "<td>".$ro['matric_no']."</td>";
                           echo "<input type='text' style='display:none' name='matric_no' value='".$ro['matric_no']."'>";
@@ -116,8 +118,10 @@
                           echo "<input type='text' style='display:none' name='address' value='".$ro['address']."'>";
                           echo "<td>".$ro['phone_no']."</td>";
                           echo "<input type='text' style='display:none' name='phone_no' value='".$ro['phone_no']."'>";
-                          echo "<td>".$ro['validuntil']."</td>";
-                          echo "<input type='text' style='display:none' name='validuntil' value='".$ro['validuntil']."'>";
+                          $date2 = $ro['validuntil'];
+                          $newDate2 = date('d/m/Y', strtotime($date2));
+                          echo "<td>".$newDate2."</td>";
+                          echo "<input type='date' style='display:none' name='validuntil' value='".$ro['validuntil']."'>";
                           echo "<td>".$ro['refer']."</td>";
                           echo "<input type='text' style='display:none' name='refer' value='".$ro['refer']."'>";
                           echo '<td><form method="POST"><button type="submit" name="matricPrint" value='.$ro['series_no'].' formaction="MatrikGantiPrint.php" class="btn btn-info">Print</button></form></td>';

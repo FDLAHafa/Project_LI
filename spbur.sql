@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2018 at 06:55 AM
+-- Generation Time: Aug 30, 2018 at 09:07 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -49,9 +49,8 @@ CREATE TABLE `complain` (
 --
 
 INSERT INTO `complain` (`series_no`, `name`, `ic_number`, `matric_no`, `course_code`, `faculty`, `address`, `phone_no`, `missDate`, `missTime`, `missPlace`, `missItem`, `report`) VALUES
-(1, 'Muhammad Izham Bin Mohamad Nizam', '980810565043', 2016686708, 'CS110', 'FSKM', 'Mat Kilau', '01123002898', '2018-08-16', '14:56:00', 'Whatsapp ', 'Hati', 'Dipercayai telah dicuri oleh seorang hamba Allah S.W.T'),
-(2, 'Ahmad Ammar Qayyum Bin Mohamad Kamal', '980801105379', 2016699092, 'CS110', 'FSKM', 'Mat Kilau', '0', '2018-08-16', '15:00:00', 'Bank Rakyat', 'Maruah', 'Saya dirogol oleh masa kerana orang berlainan bangsa menjadi sepupu sepapat.'),
-(3, 'Afif Eizlan Bin Ashraf', '980115115163', 2016483132, 'CS110', 'FSKM', 'Mat Kilau', '01111156511', '2018-08-24', '08:00:00', 'atas motor', 'kad matrik', 'tetiba hilang');
+(1, 'Ahmad Ammar Qayyum Bin Mohamad Kamal', '980801105379', 2016699092, 'CS110', 'FSKM', 'Mat Kilau', '0', '2018-08-16', '15:00:00', 'Bank Rakyat', 'Maruah', 'Saya dirogol oleh masa kerana orang berlainan bangsa menjadi sepupu sepapat.'),
+(2, 'Afif Eizlan Bin Ashraf', '980115115163', 2016483132, 'CS110', 'FSKM', 'Mat Kilau', '01111156511', '2018-08-24', '08:00:00', 'atas motor', 'kad matrik', 'tetiba hilang');
 
 -- --------------------------------------------------------
 
@@ -114,7 +113,9 @@ INSERT INTO `kp` (`series_no`, `gender`, `name`, `matric_no`, `mykad_no`, `prog_
 (2, 'Siswi', 'Nur Aminah Binti Azman', 2017567234, '980605046587', 'CS111', '2018-07-27', '12.00pm', 'Perpustakaan', 'Membuat Bising, Ingkar arahan Pegawai Perpusatkaan, , ', 30, '2018-08-01'),
 (3, 'Siswa', 'Ahmad Ammar Qayyum Bin Mohamad Kamal', 2016699092, '980801', 'CS110', '2018-07-27', '10.28am', 'Laluan Ke Pusat Islam', 'Memakai selipar, , ', 20, '2018-07-30'),
 (4, 'Siswi', 'wwxx', 213124, '124124', '214', '2018-07-04', '14124124', 'parkir mat kilau', 'Jarang, Singkat(tidak menutup punggung), Mempunyai tulisan, perkataan atau gambar liar/lucah, Lengan baju tidak sampai ke paras siku, Baju masuk ke dalam (Tuck in), Memakai purdah, , ', 50, '2018-07-27'),
-(5, 'Siswa', 'Azim', 2016686705, '980810565045', 'CS110', '2018-01-01', '10.00am', 'parkir mat kilau', 'Jarang, Tidak berkolar pada waktu pejabat, Tidak dimasukkan kedalam seluar (baju jenis masuk ke dalam), , ', 50, '2018-02-01');
+(5, 'Siswa', 'Azim', 2016686705, '980810565045', 'CS110', '2018-01-01', '10.00am', 'parkir mat kilau', 'Jarang, Tidak berkolar pada waktu pejabat, Tidak dimasukkan kedalam seluar (baju jenis masuk ke dalam), , ', 50, '2018-02-01'),
+(6, 'Siswa', 'Muhammad Izham Bin Mohamad Nizam', 2016686708, '980810565043', 'CS110', '2018-08-30', '13:15', 'PB', 'Tidak dimasukkan kedalam seluar (baju jenis masuk ke dalam), Memakai selipar, Panjang/Tidak kemas, Jimbit, ', 70, '2018-09-02'),
+(7, 'Siswa', 'Ahmad Ammar Qayyum Bin Mohamad Kamal', 2016699092, '980801105379', 'CS110', '2018-08-30', '14:00', 'PB', 'Rambut- Panjang/Tidak kemas/nKad Pelajar- Tidak membawa/gantung/pamer/nTidur Dalam Pejabat/n', 50, '2018-09-03');
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,9 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`staff_ID`, `pass_word`) VALUES
-(111, '111');
+(111, '111'),
+(2016483132, 'APip123'),
+(2016686708, 'Izham123');
 
 -- --------------------------------------------------------
 
@@ -159,14 +162,16 @@ CREATE TABLE `student` (
 INSERT INTO `student` (`matric_no`, `name`, `ic_number`, `course_code`, `faculty`, `address`, `phone_no`, `birthdate`, `gender`) VALUES
 (2015432118, 'Rabiatul Sinar Nadhilah Binti Eizlan', '990107453241', 'CS110', 'Business', 'Tun Teja 1', '034523986', '1999-01-07', 'Perempuan'),
 (2015789635, 'Ahmad Solihin', '970805786543', 'CS110', 'FSKM', 'Tok Gajah', '01146758713', '1998-08-05', 'Lelaki'),
+(2016039039, 'Nur Syasya Azzyati Binti Mohd Amin', '980903050123', 'SC039', 'FSCM', 'Melati', '0187549638', '1998-09-03', 'Perempuan'),
 (2016482968, 'Muhammad Firdaus Bin Jamdi', '990801879087', 'CS110', 'FSKM', 'Mat Kilau 2', '0132232494', '1999-08-01', 'Lelaki'),
 (2016483132, 'Afif Eizlan Bin Ashraf', '980115115163', 'CS110', 'FSKM', 'Mat Kilau', '01111156511', '1998-01-15', 'Lelaki'),
 (2016483252, 'Muhammad Haziq Bin Muhammad Ridhwan', '980826106335', 'CS110', 'FSKM', 'Mat Kilau', '0179896390', '1998-08-26', 'Lelaki'),
+(2016485836, 'Mohamad Syahmi Suhair Bin Mohamad Safnan', '981005085971', 'CS110', 'FSKM', 'Mat Kilau', '0102368052', NULL, 'Lelaki'),
 (2016686707, 'Nik Amirul Aiman', '980810436780', 'AM110', 'Adminus', 'Tok Gajah', '013467567', '1998-08-10', 'Lelaki'),
 (2016686708, 'Muhammad Izham Bin Mohamad Nizam', '980810565043', 'CS110', 'FSKM', 'Mat Kilau', '01123002898', '1998-08-10', 'Lelaki'),
 (2016699092, 'Ahmad Ammar Qayyum Bin Mohamad Kamal', '980801105379', 'CS110', 'FSKM', 'Mat Kilau', '0102368052', '1998-08-01', 'Lelaki'),
 (2017899001, 'Harith Zuhairi', '980810785643', 'AM110', 'Adminus', 'Tok Gajah', '0123997356', '1998-08-10', 'Lelaki'),
-(2019699799, 'Izara Aisyah', '840904678907', 'CS110', 'FSKm', 'Tun Teja 3', '01134567654', '1984-09-04', 'Perempuan');
+(2019699799, 'Izara Aisyah', '840904678907', 'CS110', 'FSKM', 'Tun Teja 3', '01134567654', '1984-09-04', 'Perempuan');
 
 --
 -- Indexes for dumped tables
@@ -223,7 +228,7 @@ ALTER TABLE `kad`
 -- AUTO_INCREMENT for table `kp`
 --
 ALTER TABLE `kp`
-  MODIFY `series_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `series_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

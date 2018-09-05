@@ -19,9 +19,10 @@
 		//execute SQL INSERT Command
 		$sql2 = "INSERT INTO Staff (staff_ID ,pass_word) VALUES ('".$staff_ID."', '".$pass_word."')";
 		mysqli_query($dbconn, $sql2) or die ("Error: " . mysqli_error($dbconn));
-		//Display A Message
-		echo "Data has been saved";
-		echo "<p>";
+		echo "<script type='text/javascript'>
+          	alert('Succesfull Created');
+          	setTimeout(window.location='Dashboard.php',2000);
+          	</script>";
 	}//close if isset()
 
 	}

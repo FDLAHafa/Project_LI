@@ -7,9 +7,9 @@ include("dbconn.php");
 if(isset($_POST['check']))		
 {	
 	
-	$matric_no = $_POST['matric_no'];
+	$series_no = $_POST['series_no'];
 
-	$sql0 = "SELECT * FROM complain where matric_no = '".$matric_no."'";
+	$sql0 = "SELECT * FROM complain where series_no = '".$series_no."'";
 	
 	$query0 = mysqli_query($dbconn, $sql0) or die ("Error: ".mysqli_error($dbconn));
 
@@ -26,7 +26,7 @@ if(isset($_POST['check']))
 	else {
 
 		$r = mysqli_fetch_assoc($query0);
-		$_SESSION['matric_no'] = $r['matric_no'];
+		$_SESSION['series_no'] = $r['series_no'];
 		header("Location: kadpelajar2.php");
 
 	}
