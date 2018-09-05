@@ -72,7 +72,7 @@
                                         <form role="form" method="post" action="kadpelajar3.php">
                                             <div class="form-group has-success">
                                                 <label class="control-label" for="inputSuccess">Tarikh</label>
-                                                <input type="date" name="currentdate" id="inputSuccess" class="form-control" value="<?php echo $r1['missDate'] ;?>">
+                                                <input type="date" name="currentdate" id="inputSuccess" class="form-control" value="<?php echo $r1['missDate'] ;?>" >
                                             </div>
                                             <br><label>Kepada sesiapa yang berkenaan</label><br><br>
                                             <div class="form-group has-success">

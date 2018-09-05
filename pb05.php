@@ -73,7 +73,7 @@
   </head>
   <body style="font-family:Calibri; font-size:14;">
     <button id="print" onclick="printdiv('print_pb05');">Print Summon</button>
-    <button onclick="location.href = 'rfir.php'">Back</button>
+    <button onclick="location.href = 'fir1.php'">Back</button>
     <div id="print_pb05">
       <div id="table_header">
         <table style = "background-color: rgb(234,241,221);border-collapse: collapse" width = "700" >

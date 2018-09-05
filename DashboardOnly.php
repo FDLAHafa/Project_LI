@@ -12,6 +12,15 @@
 
         <!-- Top Navigation: Right Menu -->
         <ul class="nav navbar-right navbar-top-links">
+            <li>
+                        <?php 
+                            date_default_timezone_set("Asia/Kuala_Lumpur");
+                            $autoDateTime = date('d/m/Y H:i:A');
+                            $dateOnly = date('d/m/Y');
+                            $timeOnly = date('H:i:A');
+                        ?>
+                        <lable style="color:white"><i class="fa fa-calendar fa-fw"></i> <?php echo $autoDateTime;?></lable>
+            </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-user fa-fw"></i> <?php echo $r['staff_ID']; ?> <b class="caret"></b>

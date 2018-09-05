@@ -125,8 +125,9 @@
                   <textarea class="form-control" rows="10" name="report"></textarea>
               </div>
               <div>
-                <button type="submit" name="submit" class="btn btn-success">Submit Button</button>
-                <button type="reset" class="btn btn-warning">Reset Button</button>
+                <button type="submit" name="submit" class="btn btn-success">Submit & Print</button>
+                <button type="reset" class="btn btn-warning">Reset Form</button>
+                <br><br><br><br><br><br>
               </div>
             </div>
           </form>

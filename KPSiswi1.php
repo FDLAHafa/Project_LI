@@ -14,8 +14,9 @@ if(isset($_POST['submit']))
 	$summon_time = $_POST['summon_time'];			
 	$summon_place = $_POST['summon_place'];	
 	$chkbox = $_POST['summons'];
-	$rm = $_POST['rm'];
-	$paybefore = $_POST['paybefore'];
+	$count = count($chkbox);
+	$rm = "";
+	
  
  	$chkNew = "";			
  	foreach($chkbox as $chkNew1) 
@@ -23,13 +24,16 @@ if(isset($_POST['submit']))
  		$chkNew .= $chkNew1 . ", "; 
  	} 
 
-	$sql0 = "INSERT INTO kp(gender, name, matric_no, mykad_no, prog_code, summon_date, summon_time, summon_place, summons, rm, paybefore) VALUES ('Siswa', '".$name."', '".$matric_no."', '".$mykad_no."', '".$prog_code."', '".$summon_date."', '".$summon_time."', '".$summon_place."', '".$chkNew."', '".$rm."', '".$paybefore."')";
+ 	$rm = ($count * 50) - 50;
+
+	$sql0 = "INSERT INTO kp(gender, name, matric_no, mykad_no, prog_code, summon_date, summon_time, summon_place, summons, rm) VALUES ('Siswi', '".$name."', '".$matric_no."', '".$mykad_no."', '".$prog_code."', '".$summon_date."', '".$summon_time."', '".$summon_place."', '".$chkNew."', '".$rm."')";
 	//$sql1 = "INSERT INTO spbur (MultipleValue) VALUES ('$chkNew')";
 
 	
 
 	if (mysqli_query($dbconn, $sql0)) 
 	{
+		echo "The Default Amount To Be Pay are RM".$rm."";
 		echo "<script type='text/javascript'>
           alert('Successful');
           setTimeout(window.location='KPCheck.php',2000);

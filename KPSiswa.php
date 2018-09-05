@@ -72,27 +72,28 @@
                                         <form role="form" method="post" action="KPSiswa1.php">
                                             <div class="form-group has-success">
                                                 <label class="control-label" for="inputSuccess">Nama Pelajar</label>
-                                                <input type="text" name="name" id="inputSuccess" class="form-control" value="<?php echo $r1['name'] ;?>">
+                                                <input style="color:green" type="text" name="name" id="inputSuccess" class="form-control" value="<?php echo $r1['name'] ;?>" >
                                             </div>
                                             <div class="form-group has-success">
                                                 <label class="control-label" for="inputSuccess">No Pelajar UiTM</label>
-                                                <input type="text" name="matric_no" id="inputSuccess" class="form-control" value="<?php echo $r1['matric_no'] ;?>">
+                                                <input style="color:green" type="text" name="matric_no" id="inputSuccess" class="form-control" value="<?php echo $r1['matric_no'] ;?>" >
                                             </div>
                                             <div class="form-group has-success">
                                                 <label class="control-label" for="inputSuccess">No. Kad Pengenalan</label>
-                                                <input type="text" name="ic_number" id="inputSuccess" class="form-control" value="<?php echo $r1['ic_number'] ;?>">
+                                                <input style="color:green" type="text" name="ic_number" id="inputSuccess" class="form-control" value="<?php echo $r1['ic_number'] ;?>" >
                                             </div>
                                             <div class="form-group has-success">
                                                 <label class="control-label" for="inputSuccess">Kursus</label>
-                                                <input type="text" name="course_code" id="inputSuccess" class="form-control" value="<?php echo $r1['course_code'] ;?>">
+                                                <input style="color:green" type="text" name="course_code" id="inputSuccess" class="form-control" value="<?php echo $r1['course_code'] ;?>" >
                                             </div>
                                             <div class="form-group has-success">
                                                 <label class="control-label" for="inputSuccess">Tarikh</label>
-                                                <input type="date" name="summon_date" id="inputSuccess" class="form-control" required>
+                                                <input style="color:green" type="" name="summon_date" id="inputSuccess" class="form-control" value="<?php echo $dateOnly ?>" >
+                                                
                                             </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">Masa: </span>
-                                                <input type="time" name="summon_time" class="form-control" required>
+                                            <div class="form-group has-success">
+                                                <label class="control-label" for="inputSuccess">Masa</label>
+                                                <input style="color:green" type="" name="summon_time" id="inputSuccess" class="form-control" value="<?php echo $timeOnly?>" >
                                             </div>
                                             <div class="form-group input-group">
                                                 <span class="input-group-addon">Tempat: </span>
@@ -198,38 +199,17 @@
                                                         <input type="checkbox" name="summons[]" value="Tempat Tinggal/Tidur Dalam Kampus- Tidur di tempat yang tidak dibenarkan">9.1 Tidur di tempat yang tidak dibenarkan
                                                     </label>
                                                 </div>
-                                                <p class="form-control-static">10. Lain Lain</p>
+                                                <!--<p class="form-control-static">10. Lain Lain</p>
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" ><input type="text" name="summons[]">
                                                     </label>
-                                                </div>
+                                                </div>-->
                                             </div>
                                             <div class="form-group">
                                                 <pre>Kompaun ini hendaklah dijelaskan dalam tempoh 5 hari. Sekiranya tidak dijelaskan dalam tempoh yang ditetapkan, kadar maksimum boleh dikenakan. <br><br>Anda boleh manghadirkan diri atau mengaku kesalahan ini dengan surat kepada Pegawai Hal Ehwal Pelajar supaya kesalahan ini boleh di kompaunkan.</pre>
-                                                <br><br><br><br>
-                                                <label>.................................................</label>
-                                                <br><label>Tandatangan Pelapor</label>
-                                                <br><label>Nama:</label>
-                                                <br><label>Pihak Berkuasa Tatatertib</label>
-                                                <br><label>b.p Pegawai Hal Ehwal Pelajar</label>
-                                                <br><br><br><br>
-                                                <label>.................................................</label>
-                                                <br><label>Tandatangan Pelajar</label>
-                                                <br><br><label>Dibawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan ini boleh dikenakan kompaun tidak melebihi RM50.00 bagi setiap kesalahan. Anda dikehendaki membayar kompaun sebanyak</label>
-                                                <div class="form-group has-success">
-                                                    <label class="control-label" for="inputSuccess">RM</label>
-                                                    <input type="text" name="rm" id="inputSuccess" class="form-control" placeholder="Example: 10.00" required>
-                                                </div>
-                                                <div class="form-group has-success">
-                                                    <label class="control-label" for="inputSuccess">sebelum</label>
-                                                    <input type="date" name="paybefore" id="inputSuccess" class="form-control" required>
-                                                </div>
-                                                <label>jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
-                                                <br><br><br><br>
-                                                <label>.................................................</label>
-                                                <br><label>Pegawai Hal Ehwal Pelajar</label>
-                                                <br><label>Tarikh: </label>
+                                                
+                                                <br><br><label>Dibawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan ini boleh dikenakan kompaun tidak melebihi RM50.00 bagi setiap kesalahan.</label>
                                                 <br><br><label>NOTA: SILA MAJUKAN SALNAN RESIT KEPADA PEJABAT POLIS BANTUAN UiTM UNTUK RUJUKAN</label>
 
                                             </div>

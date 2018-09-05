@@ -64,8 +64,7 @@
     $date = $data["summon_date"];
     $time = $data["summon_time"];
     $violation = $data["summons"];
-    $summon = $data["rm"];
-    $appealDate = $data["paybefore"];
+    
   }
   else {echo "fish";  }
   ?>
@@ -77,8 +76,6 @@
                 $date0 = $date;
                 $newDate0 = date('d/m/Y', strtotime($date0));
 
-                $date1 = $appealDate;
-                $newDate1 = date('d/m/Y', strtotime($date1));
 ?>
 <body style="font-family:Calibri; font-size:14;">
   <button id="print" onclick="printdiv('summon');">Print Summon</button>
@@ -161,7 +158,7 @@
         <div class="flexRow">
           <div class="flexItem">
             <label>Dibawah Kaedah 26A(1) Bahagian II, Jadual Kedua Akta 174, kesalahan ini boleh dikenakan kompaun tidak melebihi RM50.00 bagi setiap kesalahan. Anda dikehendaki membayar kompaun sebanyak </label>
-            <u><b>RM<?php echo $summon;?></b></u> sebelum <u><b><?php echo $newDate1;?></b></u> <label>. Jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
+            <b>RM............</b> sebelum <b>.....................</b> <label>. Jika kompaun ini tidak dijelaskan pada tarikh tersebut <br>mengikut Kaedah 64, Bahagian V, Jadual Kedua Akta 174(1976), tindakan menggantung dari menjadi pelajar UiTM akan diambil.</label>
           </div>
         </div>
       </div>

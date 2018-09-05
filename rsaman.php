@@ -79,7 +79,7 @@
                                         <thead>
                                             <tr>
                                                 <th>No Siri</th>
-                                                <th>Jantina</th>
+                                                <th>Siswa/Siswi</th>
                                                 <th>Nama</th>
                                                 <th>Kad Matrik</th>
                                                 <th>Kad Pengenalan</th>
