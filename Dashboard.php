@@ -40,17 +40,8 @@
         <!--PHP segement for tables and charts -->
         <?php
             include ("dbconn.php");
-            // Sets the top option to be the current year. (IE. the option that is chosen by default).
-            $currently_selected = date('Y');
-            // Year to start available options at
-            $earliest_year = 2016;
-            // Set your latest year you want in the range, in this case we use PHP to just set it to the current year.
-            $latest_year = date('Y');
-            $currentYear = $latest_year;
-            if (!isset($_POST['year']))
-            {
-              $currentYear = $_POST['yearSend'];
-            }
+            $currentYear = date('Y');
+
             //php code for violations
             $janCount=$febCount=$marCount=$aprCount=$mayCount=$junCount=$julCount=$augCount=$sepCount=$octCount=$novCount=$decCount=0;
             for ($i = 1;$i<=12;$i++)
@@ -178,20 +169,6 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">Statistik</h1>
                     </div>
-                    <div>
-                      Tahun :
-                      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="year">
-                      <?php
-                      print '<select>';
-                      // Loops over each int[year] from current year, back to the $earliest_year [1950]
-                      foreach ( range( $latest_year, $earliest_year ) as $i ) {
-                      // Prints the option with the next year in range.
-                      print '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
-                      }
-                      print '</select>'; ?>
-                      <input type="submit" name="year" value="<?php $currently_selected ?>">
-                    </form>
-                  </div>
                 </div>
                 <!-- ... Your content goes here ... -->
                 <div class="row">
