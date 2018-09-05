@@ -37,113 +37,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <!--PHP segement for tables and charts -->
-        <?php
-            include ("dbconn.php");
-            $currentYear = date('Y');
-
-            //php code for violations
-            $janCount=$febCount=$marCount=$aprCount=$mayCount=$junCount=$julCount=$augCount=$sepCount=$octCount=$novCount=$decCount=0;
-            for ($i = 1;$i<=12;$i++)
-            {
-              $monthSQL = "SELECT * FROM kp WHERE month(summon_date) = '".$i."' and year(summon_date) = '".$currentYear."'";
-              $monTest = mysqli_query($dbconn,$monthSQL);
-              $summonDate = mysqli_fetch_assoc($monTest);
-              if ($monTest == null)
-              {
-                $monCount = 0;
-              }
-              else
-              {
-                  $monCount = mysqli_num_rows($monTest);
-              }
-              if ($i == 1){
-                $janCount = $monCount;
-              }
-              elseif ($i == 2) {
-                $febCount = $monCount;
-              }
-              elseif ($i == 3) {
-                $marCount = $monCount;
-              }
-              elseif ($i == 4) {
-                $aprCount = $monCount;
-              }
-              elseif ($i == 5) {
-                $mayCount = $monCount;
-              }
-              elseif ($i == 6) {
-                $junCount = $monCount;
-              }
-              elseif ($i == 7) {
-                $julCount = $monCount;
-              }
-              elseif ($i == 8) {
-                $augCount = $monCount;
-              }
-              elseif ($i == 9) {
-                $sepCount = $monCount;
-              }
-              elseif ($i == 10) {
-                $octCount = $monCount;
-              }
-              elseif ($i == 11) {
-                $novCount = $monCount;
-              }
-              elseif ($i == 12) {
-                $decCount = $monCount;
-              }
-            }
-
-            $countArr = array($janCount,$febCount,$marCount,$aprCount,$mayCount,$junCount,$julCount,$augCount,$sepCount,$octCount,$novCount,$decCount);
-
-            function intToMonth ($int)
-            {
-                $monthArr = array('January','Febuary','March','April','May','June','July','August','September','October','November','December');
-                return $monthArr[$int];
-            }
-
-            $count = '';
-            $iterVio = 0;
-            //$countVio = "";
-            foreach($countArr as $monthCount)
-            {
-                $month = intToMonth($iterVio);
-                $countVio .= "{a : '".$month."' , b : ". $monthCount."},";
-                $iterVio++;
-            }
-            $count = substr($count,0,-1);
-
-            //php code for lost matric cards
-
-            function intToFac ($int)
-            {
-                $facArr = array('FSKM','FSPPP','Business');
-                return $facArr[$int];
-            }
-
-            $fskm = "SELECT * from kad where faculty LIKE '%FSKM%'and year(currentdate) = '".$currentYear."'";
-            $fskmTest = mysqli_query($dbconn,$fskm);
-            if ($fskmTest == null) {$fskmCount = 0;}
-            else {$fskmCount = mysqli_num_rows($fskmTest);}
-
-            $fsppp = "SELECT * from kad where faculty LIKE '%FSPPP%' and year(currentdate) = '".$currentYear."'";
-            $fspppTest = mysqli_query($dbconn,$fsppp);
-            if ($fspppTest == null) {$fspppCount = 0;}
-            else {$fspppCount = mysqli_num_rows($fspppTest);}
-
-            $facCountArr = array($fskmCount,$fspppCount);
-
-            $iterFac = 0;
-            $countFac = '';
-            foreach($facCountArr as $facCount)
-            {
-                $fac = intToFac($iterFac);
-                $countFac .= "{a : '".$fac."' , b : ". $facCount."},";
-                $iterFac++;
-            }
-            $count = substr($count,0,-1);
-        ?>
 
     </head>
     <body>
@@ -160,71 +53,100 @@
         ?>
 
         <div id="wrapper">
-            <?php include("DashboardOnly.php");?>
+          <?php include("DashboardOnly.php");?>
+          <div id="page-wrapper">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h1 class="page-header">Carta Organisasi</h1>
+                </div>
+              </div>
+              <div class="row">
+                <img src="images\Carta_Organisasi.png">
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <h3 class="page-header">Profil Pegawai Polis Bantuan</h3>
+                </div>
+              </div>
+              <div class="row">
+              <!-- Profile for Officer -->
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-body">
+                      <div>
+                        <h4>ikan masin x3</h4>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            placeholder (IMG)
+                          </div>
+                          <div class="col-lg-6">
+                            placeholder (Detail)
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-            <!-- Page Content -->
-            <div id="page-wrapper">
-                <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Statistik</h1>
-                    </div>
-                </div>
-                <!-- ... Your content goes here ... -->
-                <div class="row">
-                    <!-- row for dash items -->
-                    <div class="col-lg-6">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">Jumlah Saman Tahun <?php echo $currentYear;?></div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div id='violations' style="height: 250px;">
-                                    <script>
-                                        Morris.Bar({
-                                        element : 'violations',
-                                        data:[
-                                        <?php echo $countVio ; ?>
-                                        ],
-                                        xkey: 'a',
-                                        ykeys:['b'],
-                                        labels:['Jumlah Kesalahan'],
-                                        hideHover:'auto',
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                            <!-- /.panel-body -->
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-body">
+                      <div>
+                        <h4>ikan masin x3</h4>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            placeholder (IMG)
+                          </div>
+                          <div class="col-lg-6">
+                            placeholder (Detail)
+                          </div>
                         </div>
-                    <!-- /.panel -->
+                      </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Jumlah Kehilangan Kad Matrik <?php echo $currentYear; ?></div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div id='lostMatric' style="height: 250px;">
-                                    <script>
-                                        Morris.Bar({
-                                        element : 'lostMatric',
-                                        data:[
-                                        <?php echo $countFac ; ?>
-                                        ],
-                                        xkey: 'a',
-                                        ykeys:['b'],
-                                        labels:['Fakulti'],
-                                        hideHover:'auto',
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
+                  </div>
                 </div>
+
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-body">
+                      <div>
+                        <h4>ikan masin x3</h4>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            placeholder (IMG)
+                          </div>
+                          <div class="col-lg-6">
+                            placeholder (Detail)
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-body">
+                      <div>
+                        <h4>ikan masin x3</h4>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            placeholder (IMG)
+                          </div>
+                          <div class="col-lg-6">
+                            placeholder (Detail)
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <!-- End Of Officer Profile -->
+              </div>
+              </div>
             </div>
         </div>
-    </div>
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
